@@ -1,8 +1,8 @@
 package jp.io;
 
-import java.io.IOException;
-
 import jp.model.Model;
+
+import java.io.IOException;
 
 
 /**
