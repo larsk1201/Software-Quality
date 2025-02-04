@@ -13,58 +13,59 @@ sequenceDiagram
     participant KeyController
     participant MenuController
 
-    User->>JabberPoint: Start Application
+    User->JabberPoint: Start Application
 
-    JabberPoint->>AccessorFactory: getInstance(filename)
-    AccessorFactory-->>JabberPoint: AccessorDOM (for XML)
+    JabberPoint->AccessorFactory: getInstance(filename)
+    AccessorFactory-->>JabberPoint: return AccessorDOM (for XML)
     
-    JabberPoint->>AccessorDOM: loadFile(model, filename)
+    JabberPoint->AccessorDOM: loadFile(model, filename)
     activate AccessorDOM
-    AccessorDOM->>Model: setShowTitle(title)
+    AccessorDOM->Model: setShowTitle(title)
 
-    loop For each slide in file
-        AccessorDOM->>Slide: new()
-        AccessorDOM->>Slide: setTitle(title)
+    loop [For each slide in file]
+        AccessorDOM->Slide: «create» new()
+        AccessorDOM->Slide: setTitle(title)
 
-        loop For each item in slide
-            alt If item is text
-                AccessorDOM->>Slide: append(MText)
-            else If item is image
-                AccessorDOM->>Slide: append(MBitmap)
-            else If item is code
-                AccessorDOM->>Slide: append(MCode)
-            else If item is external code
-                AccessorDOM->>Slide: append(MCodeInsert)
+        loop [For each item in slide]
+            alt [If item is text]
+                AccessorDOM->Slide: append(MText)
+            else [If item is image]
+                AccessorDOM->Slide: append(MBitmap)
+            else [If item is code]
+                AccessorDOM->Slide: append(MCode)
+            else [If item is external code]
+                AccessorDOM->Slide: append(MCodeInsert)
             end
         end
 
-        Model->>Model: append(Slide)
-        Model->>ShowView: notifyObservers(Slide)
+        Model->Model: append(Slide)
+        Model->ShowView: notifyObservers(Slide)
     end
 
     deactivate AccessorDOM
 
-    JabberPoint->>ShowView: new(model)
-    ShowView->>Model: addObserver(ShowView)
+    JabberPoint->ShowView: «create» new(model)
+    ShowView->Model: addObserver(ShowView)
 
-    JabberPoint->>KeyController: new(model)
-    JabberPoint->>MenuController: new(frame, model)
+    JabberPoint->KeyController: «create» new(model)
+    JabberPoint->MenuController: «create» new(frame, model)
 
-    User->>KeyController: keyPressed(event)
-    KeyController->>Model: nextPage()
-    Model->>ShowView: notifyObservers(slide)
-    ShowView->>Slide: draw()
+    User->KeyController: keyPressed(event)
+    KeyController->Model: nextPage()
+    Model->ShowView: notifyObservers(slide)
+    ShowView->Slide: draw()
     
-    loop For each item in slide
-        ShowView->>Style: getStyle(item.level)
-        ShowView->>Slide: draw(item, style)
+    loop [For each item in slide]
+        ShowView->Style: getStyle(item.level)
+        ShowView->Slide: draw(item, style)
     end
 
-    User->>MenuController: actionPerformed(event)
-    MenuController->>AccessorFactory: getInstance(filename)
-    AccessorFactory-->>MenuController: AccessorText (throws exception)
+    User->MenuController: actionPerformed(event)
+    MenuController->AccessorFactory: getInstance(filename)
+    AccessorFactory-->>MenuController: return AccessorText
     
-    MenuController->>AccessorText: saveFile(model, filename)
-    Note right of AccessorText: Throws IOException!
-
+    MenuController->AccessorText: saveFile(model, filename)
+    alt [If format does not support saving]
+        AccessorText-->>MenuController: throws IOException
+    end
 ```
