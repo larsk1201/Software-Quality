@@ -1,8 +1,8 @@
 ```mermaid
 graph TD
   %% Actors %%
-  User(["🧑 User"])
-  FileSystem(["💾 File System"])
+  User["🧑 User"]
+  FileSystem["💾 File System"]
 
   %% Use Cases %%
   UC1["🟢 Start JabberPoint"]
@@ -31,7 +31,6 @@ graph TD
   UC5 --> UC10
   UC4 --> UC6
   UC6 --> UC7
-
-  UC8 -->> UC4
-  UC7 -->> UC3
+  UC8 --> UC4
+  UC7 --> UC3
   ```
