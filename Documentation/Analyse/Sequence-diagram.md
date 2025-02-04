@@ -3,7 +3,9 @@ sequenceDiagram
     participant User
     participant JabberPoint
     participant AccessorFactory  
-    participant Accessor
+    participant AccessorDOM
+    participant AccessorJDOM
+    participant AccessorText
     participant Model
     participant Slide
     participant ShowView
@@ -14,24 +16,33 @@ sequenceDiagram
     User->>JabberPoint: Start Application
 
     JabberPoint->>AccessorFactory: getInstance(filename)
-    AccessorFactory-->>JabberPoint: accessor
+    AccessorFactory-->>JabberPoint: AccessorDOM (for XML)
     
-    JabberPoint->>Accessor: loadFile(model, filename)
-    activate Accessor
-    Accessor->>Model: new()
-    activate Model
+    JabberPoint->>AccessorDOM: loadFile(model, filename)
+    activate AccessorDOM
+    AccessorDOM->>Model: setShowTitle(title)
 
     loop For each slide in file
-        Accessor->>Slide: new()
-        Accessor->>Slide: setTitle(title)
+        AccessorDOM->>Slide: new()
+        AccessorDOM->>Slide: setTitle(title)
+
         loop For each item in slide
-            Accessor->>Slide: append(item)
+            alt If item is text
+                AccessorDOM->>Slide: append(MText)
+            else If item is image
+                AccessorDOM->>Slide: append(MBitmap)
+            else If item is code
+                AccessorDOM->>Slide: append(MCode)
+            else If item is external code
+                AccessorDOM->>Slide: append(MCodeInsert)
+            end
         end
-        Model->>Model: addSlide(slide)
+
+        Model->>Model: append(Slide)
+        Model->>ShowView: notifyObservers(Slide)
     end
 
-    deactivate Accessor
-    deactivate Model
+    deactivate AccessorDOM
 
     JabberPoint->>ShowView: new(model)
     ShowView->>Model: addObserver(ShowView)
@@ -41,7 +52,7 @@ sequenceDiagram
 
     User->>KeyController: keyPressed(event)
     KeyController->>Model: nextPage()
-    Model->>ShowView: update(slide)
+    Model->>ShowView: notifyObservers(slide)
     ShowView->>Slide: draw()
     
     loop For each item in slide
@@ -51,11 +62,9 @@ sequenceDiagram
 
     User->>MenuController: actionPerformed(event)
     MenuController->>AccessorFactory: getInstance(filename)
-    AccessorFactory-->>MenuController: accessor
+    AccessorFactory-->>MenuController: AccessorText (throws exception)
+    
+    MenuController->>AccessorText: saveFile(model, filename)
+    Note right of AccessorText: Throws IOException!
 
-    MenuController->>Accessor: saveFile(model, filename)
-    activate Accessor
-    Accessor->>Model: getSlides()
-    Model-->>Accessor: slides
-    deactivate Accessor
 ```
