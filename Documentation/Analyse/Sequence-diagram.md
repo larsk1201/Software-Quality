@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     participant User
     participant JabberPoint
@@ -57,3 +58,4 @@ sequenceDiagram
     Accessor->>Model: getSlides()
     Model-->>Accessor: slides
     deactivate Accessor
+```
