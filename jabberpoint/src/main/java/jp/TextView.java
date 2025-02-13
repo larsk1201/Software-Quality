@@ -19,7 +19,7 @@ import jp.model.Model;
  * @version $Id$
  */
 @SuppressWarnings("serial")
-public class TextView extends JComponent implements Observer {
+public class TextView extends ShowView implements Observer {
 
 	/** The View */
 	protected MutableList listView;
