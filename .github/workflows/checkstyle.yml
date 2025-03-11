@@ -19,7 +19,8 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '17'  # You can adjust the Java version here as needed
+        java-version: '17'   # Specify the Java version here
+        distribution: 'adoptopenjdk'  # Specify the distribution (AdoptOpenJDK or OpenJDK)
 
     - name: Install Maven
       run: |
