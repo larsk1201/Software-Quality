@@ -10,7 +10,13 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!-- Your existing dependencies go here -->
+        <!-- Guava Dependency -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1-jre</version> <!-- Ensure compatibility -->
+        </dependency>
+        <!-- Add any other dependencies you need here -->
     </dependencies>
 
     <dependencyManagement>
