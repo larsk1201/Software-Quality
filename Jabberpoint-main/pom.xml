@@ -10,13 +10,7 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!-- Guava Dependency -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>30.1-jre</version> <!-- Ensure compatibility -->
-        </dependency>
-        <!-- Add any other dependencies you need here -->
+        <!-- Your existing dependencies go here -->
     </dependencies>
 
     <dependencyManagement>
@@ -40,6 +34,10 @@
                         <goals>
                             <goal>check</goal>
                         </goals>
+                        <configuration>
+                            <!-- Point to the location of your custom checkstyle.xml -->
+                            <configLocation>src/main/resources/checkstyle/checkstyle.xml</configLocation> 
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
