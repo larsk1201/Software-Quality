@@ -1,6 +1,6 @@
 name: Run Unit Tests
 
-on: [push, pull_request]  # Trigger bij een push of pull request
+on: [push, pull_request]  # Trigger on push or pull request
 
 jobs:
   test:
@@ -8,16 +8,18 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4  # Haal de repository op
+        uses: actions/checkout@v4  # Checkout the repository
 
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'  # Kies de Java versie
+          java-version: '17'  # Use Java version 17
 
       - name: Install dependencies
-        run: mvn install -DskipTests  # Installeer dependencies zonder tests
+        working-directory: ./software-quality/jabberpoint-main  # Set working directory
+        run: mvn install -DskipTests  # Install dependencies without tests
 
       - name: Run Unit Tests
-        run: mvn test  # Voer de unittests uit
+        working-directory: ./software-quality/jabberpoint-main  # Set working directory
+        run: mvn test  # Run the unit tests
