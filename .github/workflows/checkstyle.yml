@@ -28,4 +28,5 @@ jobs:
         sudo apt install -y maven
 
     - name: Run Checkstyle
+      working-directory: ./Jabberpoint-main
       run: mvn checkstyle:check
