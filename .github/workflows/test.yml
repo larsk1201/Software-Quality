@@ -17,9 +17,9 @@ jobs:
           java-version: '17'  # Use Java version 17
 
       - name: Install dependencies
-        working-directory: /Jabberpoint-main  # Set working directory
+        working-directory: ./Jabberpoint-main  # Set working directory
         run: mvn install -DskipTests  # Install dependencies without tests
 
       - name: Run Unit Tests
-        working-directory: /Jabberpoint-main  # Set working directory
+        working-directory: ./Jabberpoint-main  # Set working directory
         run: mvn test  # Run the unit tests
