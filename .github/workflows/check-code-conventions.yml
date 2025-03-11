@@ -14,12 +14,10 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'  # Use Java version 17
+          java-version: '17'  # Choose the Java version
 
       - name: Install dependencies
-        working-directory: ./Jabberpoint-main  # Set working directory
         run: mvn install -DskipTests  # Install dependencies without tests
 
       - name: Run Checkstyle
-        working-directory: ./Jabberpoint-main  # Set working directory
-        run: mvn checkstyle:check  # Run Checkstyle plugin
+        run: mvn checkstyle:check  # Run the Checkstyle plugin
