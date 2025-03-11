@@ -11,7 +11,7 @@ on:
 jobs:
   checkstyle:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
         java-version: '17'  # Choose the appropriate Java version
 
     - name: Set up Maven
-      uses: actions/setup-maven@v3
+      uses: maven-action/setup-maven@v2  # Updated to the correct action
 
     - name: Run Checkstyle
       run: mvn checkstyle:check
