@@ -1,0 +1,36 @@
+name: Test Coverage Report
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test_coverage:
+    name: Bereken test coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Haal de repository op
+        uses: actions/checkout@v4
+
+      - name: Installeer JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: maven
+
+      - name: Voer tests uit en genereer coverage rapport
+        run: mvn clean verify jacoco:report
+
+      - name: Upload test coverage rapport
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-coverage
+          path: target/site/jacoco
