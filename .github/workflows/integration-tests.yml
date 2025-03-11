@@ -1,0 +1,30 @@
+name: Integration Tests
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  integration_tests:
+    name: Voer integratietests uit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Haal de repository op
+        uses: actions/checkout@v4
+
+      - name: Installeer JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: maven
+
+      - name: Voer integratietests uit
+        run: mvn verify -Dgroups=integration
