@@ -19,10 +19,12 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '17'  # Choose the appropriate Java version
+        java-version: '17'  # You can adjust the Java version here as needed
 
-    - name: Set up Maven
-      uses: maven-action/setup-maven@v2  # Updated to the correct action
+    - name: Install Maven
+      run: |
+        sudo apt update
+        sudo apt install -y maven
 
     - name: Run Checkstyle
       run: mvn checkstyle:check
