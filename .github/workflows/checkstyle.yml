@@ -1,0 +1,20 @@
+name: Check Code Conventions
+
+on: [push, pull_request]
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Haal repository op
+        uses: actions/checkout@v4
+
+      - name: Installeer Java en Maven
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Controleer code conventies met Checkstyle
+        run: mvn checkstyle:check
