@@ -1,20 +1,23 @@
 name: Run Unit Tests
 
-on: [push, pull_request]
+on: [push, pull_request]  # Trigger bij een push of pull request
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Haal repository op
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4  # Haal de repository op
 
-      - name: Installeer Java en Maven
+      - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '17'  # Kies de Java versie
 
-      - name: Voer unittests uit
-        run: mvn test
+      - name: Install dependencies
+        run: mvn install -DskipTests  # Installeer dependencies zonder tests
+
+      - name: Run Unit Tests
+        run: mvn test  # Voer de unittests uit
