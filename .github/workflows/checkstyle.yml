@@ -19,8 +19,8 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '17'   # Specify the Java version here
-        distribution: 'temurin'  # Use Temurin as the distribution (formerly AdoptOpenJDK)
+        java-version: '17'
+        distribution: 'temurin'
 
     - name: Install Maven
       run: |
