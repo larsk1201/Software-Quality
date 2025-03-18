@@ -8,5 +8,54 @@
 
     <module name="TreeWalker">
         <module name="GoogleChecks"/>
+
+        <!-- Enforce naming conventions -->
+        <module name="ConstantName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+
+        <!-- Enforce Javadoc formatting -->
+        <module name="JavadocStyle"/>
+        <module name="JavadocMethod"/>
+
+        <!-- Enforce whitespace rules -->
+        <module name="WhitespaceAround"/>
+        <module name="WhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="EmptyLineSeparator"/>
+
+        <!-- Enforce import order and avoid wildcard imports -->
+        <module name="AvoidStarImport"/>
+        <module name="UnusedImports"/>
+        <module name="CustomImportOrder">
+            <property name="customImportOrderRules" value="STATIC###STANDARD_JAVA_PACKAGE###SPECIAL_IMPORTS###THIRD_PARTY_PACKAGE"/>
+            <property name="separateLineBetweenGroups" value="true"/>
+            <property name="sortImportsInGroupAlphabetically" value="true"/>
+        </module>
+
+        <!-- Enforce proper use of curly braces -->
+        <module name="LeftCurly"/>
+        <module name="RightCurly"/>
+        <module name="NeedBraces"/>
+
+        <!-- Enforce indentation and line length -->
+        <module name="Indentation"/>
+        <module name="LineLength">
+            <property name="max" value="100"/>
+        </module>
+
+        <!-- Enforce best practices -->
+        <module name="FinalLocalVariable"/>
+        <module name="OverloadMethodsDeclarationOrder"/>
+        <module name="ExplicitInitialization"/>
+        <module name="VisibilityModifier"/>
+        <module name="NoFinalizer"/>
+        <module name="SingleSpaceSeparator"/>
+        <module name="UnnecessaryParentheses"/>
+        <module name="NoClone"/>
+
+        <!-- Enforce variable and method order -->
+        <module name="MethodParamPad"/>
+        <module name="VariableDeclarationUsageDistance"/>
     </module>
 </module>
