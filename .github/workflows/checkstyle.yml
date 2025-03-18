@@ -22,15 +22,17 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           
-      - name: Run checkstyle
+      - name: Download Checkstyle and Google Style Guide
         run: |
           wget -O checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.3.3/checkstyle-10.3.3-all.jar
-          echo "Checking Java files in Jabberpoint-main/src:"
-          find Jabberpoint-main/src -name "*.java" | sort
-          java -jar checkstyle.jar -c ./checkstyle.xml -f xml -o checkstyle-result.xml $(find Jabberpoint-main/src -name "*.java")
+          wget -O google_checks.xml https://raw.githubusercontent.com/checkstyle/checkstyle/master/src/main/resources/google_checks.xml
+
+      - name: Run Checkstyle with Google Style Guide
+        run: |
+          java -jar checkstyle.jar -c google_checks.xml $(find Jabberpoint-main/src -name "*.java")
         continue-on-error: true
         
-      - name: Publish checkstyle results
+      - name: Publish Checkstyle results
         uses: jwgmeligmeyling/checkstyle-github-action@master
         with:
           path: 'checkstyle-result.xml'
