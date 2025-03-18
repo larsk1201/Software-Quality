@@ -139,7 +139,7 @@ public class XMLAccessor extends Accessor {
 						out.print( ( (BitmapItem) slideItem).getName());
 					}
 					else {
-						System.out.println("Ignoring " + slideItem);
+						System.out.println("Ignorings " + slideItem);
 					}
 				}
 				out.println("</item>");
