@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
 jobs:
   checkstyle:
     runs-on: ubuntu-latest
@@ -20,7 +25,9 @@ jobs:
       - name: Run checkstyle
         run: |
           wget -O checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.3.3/checkstyle-10.3.3-all.jar
-          java -jar checkstyle.jar -c ./checkstyle.xml -f xml -o checkstyle-result.xml $(find . -name "*.java" | grep -v "/build/" | grep -v "/target/")
+          echo "Checking Java files in Jabberpoint-main/src:"
+          find Jabberpoint-main/src -name "*.java" | sort
+          java -jar checkstyle.jar -c ./checkstyle.xml -f xml -o checkstyle-result.xml $(find Jabberpoint-main/src -name "*.java")
         continue-on-error: true
         
       - name: Publish checkstyle results
