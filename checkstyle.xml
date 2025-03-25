@@ -6,6 +6,11 @@
     <property name="severity" value="warning"/>
     <property name="fileExtensions" value="java"/>
 
+    <!-- Enforce line length -->
+    <module name="LineLength">
+        <property name="max" value="100"/>
+    </module>
+
     <module name="TreeWalker">
         <!-- Enforce naming conventions -->
         <module name="ConstantName"/>
@@ -36,11 +41,8 @@
         <module name="RightCurly"/>
         <module name="NeedBraces"/>
 
-        <!-- Enforce indentation and line length -->
+        <!-- Enforce indentation -->
         <module name="Indentation"/>
-        <module name="LineLength">
-            <property name="max" value="100"/>
-        </module>
 
         <!-- Enforce best practices -->
         <module name="FinalLocalVariable"/>
