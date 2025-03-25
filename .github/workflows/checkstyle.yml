@@ -25,12 +25,8 @@ jobs:
       - name: Download Checkstyle
         run: |
           wget -O checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.3.3/checkstyle-10.3.3-all.jar
-          
-      - name: Run Checkstyle with Custom Configuration
-        run: |
-          java -Dcheckstyle.errorsAsWarnings=true -jar checkstyle.jar -c ./checkstyle.xml $(find Jabberpoint-main/src -name "*.java") -o checkstyle-result.xml
 
-      - name: Publish Checkstyle results
-        uses: jwgmeligmeyling/checkstyle-github-action@master
-        with:
-          path: 'checkstyle-result.xml'
+      # Run Checkstyle and print errors directly in GitHub Actions logs
+      - name: Run Checkstyle
+        run: |
+          java -jar checkstyle.jar -c ./checkstyle.xml $(find Jabberpoint-main/src -name "*.java")
