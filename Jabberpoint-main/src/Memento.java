@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Memento {
+
   private String savedTitle;
   private ArrayList<Slide> savedSlides;
 

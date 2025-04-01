@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class PresentationCaretaker {
 
-  private Stack<Memento> history;
+  private Stack<Memento> history = new Stack<>();
 
   public Stack<Memento> getHistory() {
     return this.history;
@@ -13,10 +13,12 @@ public class PresentationCaretaker {
   }
 
   public void save(Presentation presentation) {
-
+    history.push(presentation.createMemento());
   }
 
   public void load(Presentation presentation) {
-
+    if (!history.isEmpty()) {
+      presentation.restoreMemento(history.pop());
+    }
   }
 }

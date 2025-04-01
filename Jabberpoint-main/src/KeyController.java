@@ -57,16 +57,22 @@ public class KeyController extends KeyAdapter {
       case KeyEvent.VK_DOWN:
       case KeyEvent.VK_ENTER:
       case '+':
-        presentation.nextSlide();
+        if (nextSlideCommand != null) {
+          nextSlideCommand.execute();
+        }
         break;
       case KeyEvent.VK_PAGE_UP:
       case KeyEvent.VK_UP:
       case '-':
-        presentation.prevSlide();
+        if (prevSlideCommand != null) {
+          prevSlideCommand.execute();
+        }
         break;
       case 'q':
       case 'Q':
-        System.exit(0);
+        if (exitCommand != null) {
+          exitCommand.execute();
+        }
         break; // wordt nooit bereikt als het goed is
       default:
         break;

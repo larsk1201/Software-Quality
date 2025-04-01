@@ -93,6 +93,16 @@ public class Presentation {
     return getSlide(currentSlideNumber);
   }
 
+  public Memento createMemento() {
+    return new Memento(showTitle, new ArrayList<>(showList));
+  }
+
+  public void restoreMemento(Memento memento) {
+    this.showTitle = memento.getSavedTitle();
+    this.showList = new ArrayList<>(memento.getSavedSlides());
+    setSlideNumber(0); // Reset to the first slide after restoring
+  }
+
   public void exit(int n) {
     System.exit(n);
   }
