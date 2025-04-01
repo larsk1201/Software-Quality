@@ -39,6 +39,33 @@ public class BitmapItem extends SlideItem {
     this(0, null);
   }
 
+  public BufferedImage getBufferedImage() {
+    return this.bufferedImage;
+  }
+
+  public void setBufferedImage(BufferedImage bufferedImage) {
+    this.bufferedImage = bufferedImage;
+  }
+
+  public String getImageName() {
+    return this.imageName;
+  }
+
+  public void setImageName(String imageName) {
+    this.imageName = imageName;
+  }
+
+  public BitmapItem(int lev, BufferedImage bufferedImage, String imageName) {
+    super(lev);
+    this.bufferedImage = bufferedImage;
+    this.imageName = imageName;
+  }
+
+  public BitmapItem(BufferedImage bufferedImage, String imageName) {
+    this.bufferedImage = bufferedImage;
+    this.imageName = imageName;
+  }
+
   // geef de bestandsnaam van de afbeelding
   public String getName() {
     return imageName;

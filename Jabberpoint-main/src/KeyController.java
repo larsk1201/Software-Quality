@@ -11,9 +11,44 @@ import java.awt.event.KeyEvent;
 public class KeyController extends KeyAdapter {
 
   private Presentation presentation; // Er worden commando's gegeven aan de presentatie
+  private Command nextSlideCommand;
+  private Command prevSlideCommand;
+  private Command exitCommand;
 
-  public KeyController(Presentation p) {
-    presentation = p;
+  public KeyController(Presentation presentation) {
+    this.presentation = presentation;
+  }
+
+  public Presentation getPresentation() {
+    return this.presentation;
+  }
+
+  public void setPresentation(Presentation presentation) {
+    this.presentation = presentation;
+  }
+
+  public Command getNextSlideCommand() {
+    return this.nextSlideCommand;
+  }
+
+  public void setNextSlideCommand(Command nextSlideCommand) {
+    this.nextSlideCommand = nextSlideCommand;
+  }
+
+  public Command getPrevSlideCommand() {
+    return this.prevSlideCommand;
+  }
+
+  public void setPrevSlideCommand(Command prevSlideCommand) {
+    this.prevSlideCommand = prevSlideCommand;
+  }
+
+  public Command getExitCommand() {
+    return this.exitCommand;
+  }
+
+  public void setExitCommand(Command exitCommand) {
+    this.exitCommand = exitCommand;
   }
 
   public void keyPressed(KeyEvent keyEvent) {
