@@ -24,43 +24,35 @@ public class JabberPoint {
     PresentationCaretaker caretaker = new PresentationCaretaker();
     SlideViewerFrame frame = new SlideViewerFrame(JABVERSION, presentation);
 
-    // Initialize commands
     Command nextSlideCommand = new NextSlideCommand(presentation);
     Command prevSlideCommand = new PrevSlideCommand(presentation);
     Command exitCommand = new ExitCommand();
-    Command undoCommand = new UndoCommand(presentation, caretaker);
-    Command addSlideCommand = new AddSlideCommand(presentation, frame);
-    Command deleteSlideCommand = new DeleteSlideCommand(presentation, frame);
+    Command undoCommand = new UndoCommand(presentation, caretaker, frame);
+    Command addSlideCommand = new AddSlideCommand(presentation, frame, caretaker);
+    Command deleteSlideCommand = new DeleteSlideCommand(presentation, frame, caretaker);
 
-    // Set commands in KeyController
     KeyController keyController = frame.getKeyController();
     keyController.setNextSlideCommand(nextSlideCommand);
     keyController.setPrevSlideCommand(prevSlideCommand);
     keyController.setExitCommand(exitCommand);
     keyController.setUndoCommand(undoCommand);
 
-    // Set commands in MenuController
     MenuController menuController = (MenuController) frame.getMenuBar();
     menuController.setUndoCommand(undoCommand);
     menuController.setAddSlideCommand(addSlideCommand);
     menuController.setDeleteSlideCommand(deleteSlideCommand);
 
-    // Save the initial state for undo
-    caretaker.save(presentation);
-
     try {
-      if (argv.length == 0) { // a demo presentation
+      if (argv.length == 0) {
         Accessor.getDemoAccessor().loadFile(presentation, "");
       } else {
         new XMLAccessor().loadFile(presentation, argv[0]);
       }
       presentation.setSlideNumber(0);
 
-      // Save the loaded state for undo
-      caretaker.save(presentation);
-
-      // Make sure the frame is repainted after loading the presentation
       frame.repaint();
+
+      caretaker.clearHistory();
 
     } catch (IOException ex) {
       JOptionPane.showMessageDialog(null,

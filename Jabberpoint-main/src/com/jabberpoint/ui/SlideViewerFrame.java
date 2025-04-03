@@ -7,13 +7,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
-/**
- * <p>Het applicatiewindow voor een slideviewcomponent</p>
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
 public class SlideViewerFrame extends JFrame {
 
   private static final long serialVersionUID = 3227L;
@@ -30,7 +23,6 @@ public class SlideViewerFrame extends JFrame {
     setupWindow(slideViewerComponent, presentation);
   }
 
-  // De GUI opzetten
   public void setupWindow(SlideViewerComponent
       slideViewerComponent, Presentation presentation) {
     setTitle(JABTITLE);
@@ -42,15 +34,13 @@ public class SlideViewerFrame extends JFrame {
 
     getContentPane().add(slideViewerComponent);
 
-    // Create and add the KeyController
     keyController = new KeyController(presentation);
     addKeyListener(keyController);
 
-    setMenuBar(new MenuController(this, presentation));  // nog een controller toevoegen
-    setSize(new Dimension(WIDTH, HEIGHT)); // Dezelfde maten als com.jabberpoint.ui.Slide hanteert.
+    setMenuBar(new MenuController(this, presentation));
+    setSize(new Dimension(WIDTH, HEIGHT));
     setVisible(true);
 
-    // Request focus after becoming visible
     requestFocus();
   }
 

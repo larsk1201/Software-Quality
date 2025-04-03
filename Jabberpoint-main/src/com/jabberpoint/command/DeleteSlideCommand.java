@@ -1,6 +1,7 @@
 package com.jabberpoint.command;
 
 import com.jabberpoint.util.Presentation;
+import com.jabberpoint.memento.PresentationCaretaker;
 import javax.swing.JOptionPane;
 import java.awt.Frame;
 
@@ -8,15 +9,16 @@ public class DeleteSlideCommand implements Command {
 
   private Presentation presentation;
   private Frame parent;
+  private PresentationCaretaker caretaker;
 
-  public DeleteSlideCommand(Presentation presentation, Frame parent) {
+  public DeleteSlideCommand(Presentation presentation, Frame parent, PresentationCaretaker caretaker) {
     this.presentation = presentation;
     this.parent = parent;
+    this.caretaker = caretaker;
   }
 
   @Override
   public void execute() {
-    // Check if there are any slides to delete
     if (presentation.getSize() <= 0) {
       JOptionPane.showMessageDialog(parent,
           "No slides to delete.",
@@ -25,8 +27,7 @@ public class DeleteSlideCommand implements Command {
       return;
     }
 
-    // Ask for confirmation before deleting
-    int currentSlide = presentation.getSlideNumber() + 1; // Convert to 1-based for display
+    int currentSlide = presentation.getSlideNumber() + 1;
     int confirm = JOptionPane.showConfirmDialog(
         parent,
         "Are you sure you want to delete slide " + currentSlide + "?",
@@ -34,7 +35,10 @@ public class DeleteSlideCommand implements Command {
         JOptionPane.YES_NO_OPTION);
 
     if (confirm == JOptionPane.YES_OPTION) {
-      // Delete the current slide
+      if (caretaker != null) {
+        caretaker.save(presentation);
+      }
+
       presentation.deleteSlide(presentation.getSlideNumber());
     }
   }

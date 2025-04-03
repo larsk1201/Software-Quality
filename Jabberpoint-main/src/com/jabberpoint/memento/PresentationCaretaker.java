@@ -15,13 +15,20 @@ public class PresentationCaretaker {
     this.history = history;
   }
 
+  public void clearHistory() {
+    history.clear();
+  }
+
   public void save(Presentation presentation) {
-    history.push(presentation.createMemento());
+    Memento memento = presentation.createMemento();
+    history.push(memento);
   }
 
   public void load(Presentation presentation) {
     if (!history.isEmpty()) {
-      presentation.restoreMemento(history.pop());
+      Memento memento = history.pop();
+      presentation.restoreMemento(memento);
     }
   }
 }
+

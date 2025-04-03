@@ -9,19 +9,11 @@ import java.awt.Rectangle;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-
-/**
- * <p>com.jabberpoint.ui.SlideViewerComponent is een grafische component die Slides kan laten zien.</p>
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
 public class SlideViewerComponent extends JComponent {
 
-  private Slide slide; // de huidige slide
-  private Font labelFont = null; // het font voor labels
-  private Presentation presentation = null; // de presentatie
+  private Slide slide;
+  private Font labelFont = null;
+  private Presentation presentation = null;
   private JFrame frame = null;
 
   private static final long serialVersionUID = 227L;
@@ -39,6 +31,8 @@ public class SlideViewerComponent extends JComponent {
     presentation = pres;
     labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
     this.frame = frame;
+
+    setFocusable(true);
   }
 
   public Dimension getPreferredSize() {
@@ -56,7 +50,6 @@ public class SlideViewerComponent extends JComponent {
     frame.setTitle(presentation.getTitle());
   }
 
-  // teken de slide
   public void paintComponent(Graphics g) {
     g.setColor(BGCOLOR);
     g.fillRect(0, 0, getSize().width, getSize().height);

@@ -5,16 +5,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
 
-/**
- * <p>This is the com.jabberpoint.command.KeyController (KeyListener)</p>
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
 public class KeyController extends KeyAdapter {
 
-  private Presentation presentation; // Er worden commando's gegeven aan de presentatie
+  private Presentation presentation;
   private Command nextSlideCommand;
   private Command prevSlideCommand;
   private Command exitCommand;
@@ -65,8 +58,13 @@ public class KeyController extends KeyAdapter {
   }
 
   public void keyPressed(KeyEvent keyEvent) {
-    // Debug print to see which key is being pressed
-    System.out.println("Key pressed: " + keyEvent.getKeyCode() + " (" + KeyEvent.getKeyText(keyEvent.getKeyCode()) + ")");
+    if (keyEvent.getKeyCode() == KeyEvent.VK_Z &&
+        (keyEvent.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0) {
+      if (undoCommand != null) {
+        undoCommand.execute();
+      }
+      return;
+    }
 
     switch (keyEvent.getKeyCode()) {
       case KeyEvent.VK_PAGE_DOWN:
@@ -92,13 +90,6 @@ public class KeyController extends KeyAdapter {
       case 'Q':
         if (exitCommand != null) {
           exitCommand.execute();
-        }
-        break; // wordt nooit bereikt als het goed is
-      case KeyEvent.VK_Z:
-        if ((keyEvent.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0) {
-          if (undoCommand != null) {
-            undoCommand.execute();
-          }
         }
         break;
       default:
