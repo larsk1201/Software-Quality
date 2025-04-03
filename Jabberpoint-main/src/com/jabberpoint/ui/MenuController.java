@@ -1,9 +1,8 @@
 package com.jabberpoint.ui;
 
-import com.jabberpoint.factory.Accessor;
+import com.jabberpoint.command.Command;
 import com.jabberpoint.factory.XMLAccessor;
 import com.jabberpoint.util.Presentation;
-import com.jabberpoint.command.Command;
 import java.awt.FileDialog;
 import java.awt.Frame;
 import java.awt.Menu;
@@ -12,175 +11,106 @@ import java.awt.MenuItem;
 import java.awt.MenuShortcut;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-/**
- * <p>De controller voor het menu</p>
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
 public class MenuController extends MenuBar {
-
-  private Frame parent; // het frame, alleen gebruikt als ouder voor de Dialogs
-  private Presentation presentation; // Er worden commando's gegeven aan de presentatie
-  private Command undoCommand;
+  private Frame parent;
+  private Presentation presentation;
   private Command addSlideCommand;
   private Command deleteSlideCommand;
-
-  private static final long serialVersionUID = 227L;
-
-  protected static final String ABOUT = "About";
-  protected static final String FILE = "File";
-  protected static final String EXIT = "Exit";
-  protected static final String GOTO = "Go to";
-  protected static final String HELP = "Help";
-  protected static final String NEW = "New";
-  protected static final String NEXT = "Next";
-  protected static final String LOAD = "Load";
-  protected static final String PAGENR = "Page number?";
-  protected static final String PREV = "Prev";
-  protected static final String SAVE = "Save";
-  protected static final String VIEW = "View";
-  protected static final String UNDO = "Undo";
-  protected static final String ADD_SLIDE = "Add Slide";
-  protected static final String DELETE_SLIDE = "Delete Slide";
-
-  protected static final String TESTFILE = "test.xml";
-  protected static final String SAVEFILE = "dump.xml";
-
-  protected static final String IOEX = "IO Exception: ";
-  protected static final String LOADERR = "Load Error";
-  protected static final String SAVEERR = "Save Error";
+  private Command undoCommand;
 
   public MenuController(Frame frame, Presentation pres) {
-    parent = frame;
-    presentation = pres;
-    MenuItem menuItem;
-    Menu fileMenu = new Menu(FILE);
-    fileMenu.add(menuItem = mkMenuItem(LOAD)); // Renamed from OPEN to LOAD
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        FileDialog fileDialog = new FileDialog(parent, "Load File", FileDialog.LOAD); // Updated dialog title
-        fileDialog.setVisible(true);
-        String directory = fileDialog.getDirectory();
-        String file = fileDialog.getFile();
-        if (directory != null && file != null) {
-          presentation.clear();
-          Accessor xmlAccessor = new XMLAccessor();
-          try {
-            xmlAccessor.loadFile(presentation, directory + file);
-            presentation.setSlideNumber(0);
-          } catch (IOException exc) {
-            JOptionPane.showMessageDialog(parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
-          }
-          parent.repaint();
-        }
-      }
-    });
-    fileMenu.add(menuItem = mkMenuItem(NEW));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.clear();
-        parent.repaint();
-      }
-    });
-    fileMenu.add(menuItem = mkMenuItem(SAVE));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        FileDialog fileDialog = new FileDialog(parent, "Save File", FileDialog.SAVE);
-        fileDialog.setVisible(true);
-        String directory = fileDialog.getDirectory();
-        String file = fileDialog.getFile();
-        if (directory != null && file != null) {
-          Accessor xmlAccessor = new XMLAccessor();
-          try {
-            xmlAccessor.saveFile(presentation, directory + file);
-          } catch (IOException exc) {
-            JOptionPane.showMessageDialog(parent, IOEX + exc, SAVEERR, JOptionPane.ERROR_MESSAGE);
-          }
-        }
-      }
-    });
+    this.parent = frame;
+    this.presentation = pres;
+    setupFileMenu();
+    setupViewMenu();
+    setupEditMenu();
+    setupHelpMenu();
+  }
+
+  private void setupFileMenu() {
+    Menu fileMenu = new Menu("File");
+    fileMenu.add(createMenuItem("Load", this::loadFile));
+    fileMenu.add(createMenuItem("New", this::newFile));
+    fileMenu.add(createMenuItem("Save", this::saveFile));
     fileMenu.addSeparator();
-    fileMenu.add(menuItem = mkMenuItem(EXIT));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.exit(0);
-      }
-    });
+    fileMenu.add(createMenuItem("Exit", e -> System.exit(0)));
     add(fileMenu);
-    Menu viewMenu = new Menu(VIEW);
-    viewMenu.add(menuItem = mkMenuItem(NEXT));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.nextSlide();
-      }
-    });
-    viewMenu.add(menuItem = mkMenuItem(PREV));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        presentation.prevSlide();
-      }
-    });
-    viewMenu.add(menuItem = mkMenuItem(GOTO));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
-        int pageNumber = Integer.parseInt(pageNumberStr);
-        presentation.setSlideNumber(pageNumber - 1);
-      }
-    });
+  }
+
+  private void setupViewMenu() {
+    Menu viewMenu = new Menu("View");
+    viewMenu.add(createMenuItem("Next", e -> presentation.nextSlide()));
+    viewMenu.add(createMenuItem("Prev", e -> presentation.prevSlide()));
+    viewMenu.add(createMenuItem("Go to", e -> goToSlide()));
     add(viewMenu);
+  }
 
-    // Add a new Edit menu with Add Slide, Delete Slide, and Undo options
+  private void setupEditMenu() {
     Menu editMenu = new Menu("Edit");
-    editMenu.add(menuItem = mkMenuItem(ADD_SLIDE));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        if (addSlideCommand != null) {
-          addSlideCommand.execute();
-        }
-      }
-    });
-
-    editMenu.add(menuItem = mkMenuItem(DELETE_SLIDE));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        if (deleteSlideCommand != null) {
-          deleteSlideCommand.execute();
-        }
-      }
-    });
-
-    editMenu.add(menuItem = mkMenuItem(UNDO));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        if (undoCommand != null) {
-          undoCommand.execute();
-        }
-      }
-    });
+    editMenu.add(createMenuItem("Add Slide", e -> addSlideCommand.execute()));
+    editMenu.add(createMenuItem("Delete Slide", e -> deleteSlideCommand.execute()));
+    editMenu.add(createMenuItem("Undo", e -> undoCommand.execute()));
     add(editMenu);
+  }
 
-    Menu helpMenu = new Menu(HELP);
-    helpMenu.add(menuItem = mkMenuItem(ABOUT));
-    menuItem.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent actionEvent) {
-        AboutBox.show(parent);
+  private void setupHelpMenu() {
+    Menu helpMenu = new Menu("Help");
+    helpMenu.add(createMenuItem("About", e -> AboutBox.show(parent)));
+    setHelpMenu(helpMenu);
+  }
+
+  private MenuItem createMenuItem(String name, ActionListener action) {
+    MenuItem menuItem = new MenuItem(name, new MenuShortcut(name.charAt(0)));
+    menuItem.addActionListener(action);
+    return menuItem;
+  }
+
+  private void loadFile(ActionEvent e) {
+    FileDialog fileDialog = new FileDialog(parent, "Load File", FileDialog.LOAD);
+    fileDialog.setVisible(true);
+    String fileName = fileDialog.getFile();
+    if (fileName != null) {
+      try {
+        new XMLAccessor().loadFile(presentation, fileDialog.getDirectory() + fileName);
+      } catch (IOException ex) {
+        ex.printStackTrace();
       }
-    });
-    setHelpMenu(helpMenu);    // nodig for portability (Motif, etc.).
+    }
   }
 
-  // een menu-item aanmaken
-  public MenuItem mkMenuItem(String name) {
-    return new MenuItem(name, new MenuShortcut(name.charAt(0)));
+  private void newFile(ActionEvent e) {
+    presentation.clear();
+    parent.repaint();
   }
 
-  public void setUndoCommand(Command undoCommand) {
-    this.undoCommand = undoCommand;
+  private void saveFile(ActionEvent e) {
+    FileDialog fileDialog = new FileDialog(parent, "Save File", FileDialog.SAVE);
+    fileDialog.setVisible(true);
+    String fileName = fileDialog.getFile();
+    if (fileName != null) {
+      try {
+        new XMLAccessor().saveFile(presentation, fileDialog.getDirectory() + fileName);
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      }
+    }
+  }
+
+  private void goToSlide() {
+    String input = JOptionPane.showInputDialog(parent, "Enter slide number:");
+    if (input != null) {
+      try {
+        int slideNumber = Integer.parseInt(input);
+        presentation.setSlideNumber(slideNumber - 1); // Assuming slide numbers are 1-based
+        parent.repaint();
+      } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(parent, "Invalid slide number", "Error", JOptionPane.ERROR_MESSAGE);
+      }
+    }
   }
 
   public void setAddSlideCommand(Command addSlideCommand) {
@@ -190,5 +120,8 @@ public class MenuController extends MenuBar {
   public void setDeleteSlideCommand(Command deleteSlideCommand) {
     this.deleteSlideCommand = deleteSlideCommand;
   }
-}
 
+  public void setUndoCommand(Command undoCommand) {
+    this.undoCommand = undoCommand;
+  }
+}

@@ -42,7 +42,9 @@ class DemoPresentation extends Accessor {
     presentation.append(slide);
   }
 
+  @Override
   public void saveFile(Presentation presentation, String unusedFilename) {
-    throw new IllegalStateException("Save As->Demo! aangeroepen");
+    // Provide a no-op implementation or handle appropriately
+    System.out.println("DemoPresentation does not support saving.");
   }
 }
