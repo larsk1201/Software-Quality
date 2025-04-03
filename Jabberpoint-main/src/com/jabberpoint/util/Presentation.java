@@ -85,6 +85,27 @@ public class Presentation {
     showList.add(slide);
   }
 
+  // Delete a slide from the presentation
+  public void deleteSlide(int index) {
+    if (index < 0 || index >= showList.size()) {
+      return; // Invalid index
+    }
+
+    // Remove the slide
+    showList.remove(index);
+
+    // Adjust the current slide number if needed
+    if (showList.isEmpty()) {
+      setSlideNumber(-1); // No slides left
+    } else if (currentSlideNumber >= showList.size()) {
+      setSlideNumber(showList.size() - 1); // Go to the last slide
+    } else {
+      // Stay on the same slide number (which is now a different slide)
+      // but need to update the view
+      setSlideNumber(currentSlideNumber);
+    }
+  }
+
   // Geef een slide met een bepaald slidenummer
   public Slide getSlide(int number) {
     if (number < 0 || number >= getSize()) {
@@ -112,3 +133,4 @@ public class Presentation {
     System.exit(n);
   }
 }
+

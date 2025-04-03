@@ -26,6 +26,8 @@ public class MenuController extends MenuBar {
   private Frame parent; // het frame, alleen gebruikt als ouder voor de Dialogs
   private Presentation presentation; // Er worden commando's gegeven aan de presentatie
   private Command undoCommand;
+  private Command addSlideCommand;
+  private Command deleteSlideCommand;
 
   private static final long serialVersionUID = 227L;
 
@@ -42,6 +44,8 @@ public class MenuController extends MenuBar {
   protected static final String SAVE = "Save";
   protected static final String VIEW = "View";
   protected static final String UNDO = "Undo";
+  protected static final String ADD_SLIDE = "Add Slide";
+  protected static final String DELETE_SLIDE = "Delete Slide";
 
   protected static final String TESTFILE = "test.xml";
   protected static final String SAVEFILE = "dump.xml";
@@ -129,16 +133,27 @@ public class MenuController extends MenuBar {
       }
     });
     add(viewMenu);
-    Menu helpMenu = new Menu(HELP);
-    helpMenu.add(menuItem = mkMenuItem(ABOUT));
+
+    // Add a new Edit menu with Add Slide, Delete Slide, and Undo options
+    Menu editMenu = new Menu("Edit");
+    editMenu.add(menuItem = mkMenuItem(ADD_SLIDE));
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
-        AboutBox.show(parent);
+        if (addSlideCommand != null) {
+          addSlideCommand.execute();
+        }
       }
     });
-    setHelpMenu(helpMenu);    // nodig for portability (Motif, etc.).
 
-    Menu editMenu = new Menu("Edit");
+    editMenu.add(menuItem = mkMenuItem(DELETE_SLIDE));
+    menuItem.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent actionEvent) {
+        if (deleteSlideCommand != null) {
+          deleteSlideCommand.execute();
+        }
+      }
+    });
+
     editMenu.add(menuItem = mkMenuItem(UNDO));
     menuItem.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent actionEvent) {
@@ -148,6 +163,15 @@ public class MenuController extends MenuBar {
       }
     });
     add(editMenu);
+
+    Menu helpMenu = new Menu(HELP);
+    helpMenu.add(menuItem = mkMenuItem(ABOUT));
+    menuItem.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent actionEvent) {
+        AboutBox.show(parent);
+      }
+    });
+    setHelpMenu(helpMenu);    // nodig for portability (Motif, etc.).
   }
 
   // een menu-item aanmaken
@@ -158,4 +182,13 @@ public class MenuController extends MenuBar {
   public void setUndoCommand(Command undoCommand) {
     this.undoCommand = undoCommand;
   }
+
+  public void setAddSlideCommand(Command addSlideCommand) {
+    this.addSlideCommand = addSlideCommand;
+  }
+
+  public void setDeleteSlideCommand(Command deleteSlideCommand) {
+    this.deleteSlideCommand = deleteSlideCommand;
+  }
 }
+

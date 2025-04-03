@@ -40,15 +40,6 @@ class DemoPresentation extends Accessor {
     slide.append(3, "Zo ziet level 3 er uit");
     slide.append(4, "En dit is level 4");
     presentation.append(slide);
-
-    slide = new Slide();
-    slide.setTitle("De derde slide");
-    slide.append(1, "Om een nieuwe presentatie te openen,");
-    slide.append(2, "gebruik File->Open uit het menu.");
-    slide.append(1, " ");
-    slide.append(1, "Dit is het einde van de presentatie.");
-    slide.append(new BitmapItem(1, "com.jabberpoint.JabberPoint.jpg"));
-    presentation.append(slide);
   }
 
   public void saveFile(Presentation presentation, String unusedFilename) {

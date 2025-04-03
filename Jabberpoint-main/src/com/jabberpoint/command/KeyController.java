@@ -65,6 +65,9 @@ public class KeyController extends KeyAdapter {
   }
 
   public void keyPressed(KeyEvent keyEvent) {
+    // Debug print to see which key is being pressed
+    System.out.println("Key pressed: " + keyEvent.getKeyCode() + " (" + KeyEvent.getKeyText(keyEvent.getKeyCode()) + ")");
+
     switch (keyEvent.getKeyCode()) {
       case KeyEvent.VK_PAGE_DOWN:
       case KeyEvent.VK_DOWN:
@@ -79,6 +82,7 @@ public class KeyController extends KeyAdapter {
       case KeyEvent.VK_PAGE_UP:
       case KeyEvent.VK_UP:
       case KeyEvent.VK_LEFT:
+      case KeyEvent.VK_BACK_SPACE:
       case '-':
         if (prevSlideCommand != null) {
           prevSlideCommand.execute();
@@ -102,3 +106,4 @@ public class KeyController extends KeyAdapter {
     }
   }
 }
+

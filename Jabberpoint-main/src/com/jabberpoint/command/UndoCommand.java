@@ -1,16 +1,16 @@
 package com.jabberpoint.command;
 
-import com.jabberpoint.memento.PresentationCaretaker;
 import com.jabberpoint.util.Presentation;
+import com.jabberpoint.memento.PresentationCaretaker;
 
 public class UndoCommand implements Command {
 
-  private PresentationCaretaker caretaker;
   private Presentation presentation;
+  private PresentationCaretaker caretaker;
 
-  public UndoCommand(PresentationCaretaker caretaker, Presentation presentation) {
-    this.caretaker = caretaker;
+  public UndoCommand(Presentation presentation, PresentationCaretaker caretaker) {
     this.presentation = presentation;
+    this.caretaker = caretaker;
   }
 
   @Override
@@ -18,3 +18,4 @@ public class UndoCommand implements Command {
     caretaker.load(presentation);
   }
 }
+

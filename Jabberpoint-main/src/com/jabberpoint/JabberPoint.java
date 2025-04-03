@@ -28,21 +28,25 @@ public class JabberPoint {
     Command nextSlideCommand = new NextSlideCommand(presentation);
     Command prevSlideCommand = new PrevSlideCommand(presentation);
     Command exitCommand = new ExitCommand();
-    Command undoCommand = new UndoCommand(caretaker, presentation);
+    Command undoCommand = new UndoCommand(presentation, caretaker);
+    Command addSlideCommand = new AddSlideCommand(presentation, frame);
+    Command deleteSlideCommand = new DeleteSlideCommand(presentation, frame);
 
     // Set commands in KeyController
-    KeyController keyController = new KeyController(presentation);
+    KeyController keyController = frame.getKeyController();
     keyController.setNextSlideCommand(nextSlideCommand);
     keyController.setPrevSlideCommand(prevSlideCommand);
     keyController.setExitCommand(exitCommand);
     keyController.setUndoCommand(undoCommand);
 
     // Set commands in MenuController
-    MenuController menuController = new MenuController(frame, presentation);
+    MenuController menuController = (MenuController) frame.getMenuBar();
     menuController.setUndoCommand(undoCommand);
+    menuController.setAddSlideCommand(addSlideCommand);
+    menuController.setDeleteSlideCommand(deleteSlideCommand);
 
-    frame.addKeyListener(keyController);
-    frame.setMenuBar(menuController);
+    // Save the initial state for undo
+    caretaker.save(presentation);
 
     try {
       if (argv.length == 0) { // a demo presentation
@@ -51,6 +55,13 @@ public class JabberPoint {
         new XMLAccessor().loadFile(presentation, argv[0]);
       }
       presentation.setSlideNumber(0);
+
+      // Save the loaded state for undo
+      caretaker.save(presentation);
+
+      // Make sure the frame is repainted after loading the presentation
+      frame.repaint();
+
     } catch (IOException ex) {
       JOptionPane.showMessageDialog(null,
           IOERR + ex, JABERR,
@@ -58,3 +69,4 @@ public class JabberPoint {
     }
   }
 }
+

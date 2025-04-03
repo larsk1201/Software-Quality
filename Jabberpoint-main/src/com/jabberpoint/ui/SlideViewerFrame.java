@@ -21,6 +21,7 @@ public class SlideViewerFrame extends JFrame {
   private static final String JABTITLE = "Jabberpoint 1.6 - OU";
   public final static int WIDTH = 1200;
   public final static int HEIGHT = 800;
+  private KeyController keyController;
 
   public SlideViewerFrame(String title, Presentation presentation) {
     super(title);
@@ -38,10 +39,23 @@ public class SlideViewerFrame extends JFrame {
         System.exit(0);
       }
     });
+
     getContentPane().add(slideViewerComponent);
-    addKeyListener(new KeyController(presentation)); // een controller toevoegen
+
+    // Create and add the KeyController
+    keyController = new KeyController(presentation);
+    addKeyListener(keyController);
+
     setMenuBar(new MenuController(this, presentation));  // nog een controller toevoegen
     setSize(new Dimension(WIDTH, HEIGHT)); // Dezelfde maten als com.jabberpoint.ui.Slide hanteert.
     setVisible(true);
+
+    // Request focus after becoming visible
+    requestFocus();
+  }
+
+  public KeyController getKeyController() {
+    return keyController;
   }
 }
+
