@@ -3,6 +3,7 @@ package com.jabberpoint.command;
 import com.jabberpoint.util.Presentation;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.InputEvent;
 
 /**
  * <p>This is the com.jabberpoint.command.KeyController (KeyListener)</p>
@@ -17,6 +18,7 @@ public class KeyController extends KeyAdapter {
   private Command nextSlideCommand;
   private Command prevSlideCommand;
   private Command exitCommand;
+  private Command undoCommand;
 
   public KeyController(Presentation presentation) {
     this.presentation = presentation;
@@ -54,11 +56,21 @@ public class KeyController extends KeyAdapter {
     this.exitCommand = exitCommand;
   }
 
+  public Command getUndoCommand() {
+    return this.undoCommand;
+  }
+
+  public void setUndoCommand(Command undoCommand) {
+    this.undoCommand = undoCommand;
+  }
+
   public void keyPressed(KeyEvent keyEvent) {
     switch (keyEvent.getKeyCode()) {
       case KeyEvent.VK_PAGE_DOWN:
       case KeyEvent.VK_DOWN:
       case KeyEvent.VK_ENTER:
+      case KeyEvent.VK_RIGHT:
+      case KeyEvent.VK_SPACE:
       case '+':
         if (nextSlideCommand != null) {
           nextSlideCommand.execute();
@@ -66,6 +78,7 @@ public class KeyController extends KeyAdapter {
         break;
       case KeyEvent.VK_PAGE_UP:
       case KeyEvent.VK_UP:
+      case KeyEvent.VK_LEFT:
       case '-':
         if (prevSlideCommand != null) {
           prevSlideCommand.execute();
@@ -77,6 +90,13 @@ public class KeyController extends KeyAdapter {
           exitCommand.execute();
         }
         break; // wordt nooit bereikt als het goed is
+      case KeyEvent.VK_Z:
+        if ((keyEvent.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0) {
+          if (undoCommand != null) {
+            undoCommand.execute();
+          }
+        }
+        break;
       default:
         break;
     }

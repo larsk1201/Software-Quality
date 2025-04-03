@@ -1,8 +1,9 @@
 package com.jabberpoint.ui;
 
-import com.jabberpoint.util.Presentation;
 import com.jabberpoint.factory.Accessor;
 import com.jabberpoint.factory.XMLAccessor;
+import com.jabberpoint.util.Presentation;
+import com.jabberpoint.command.Command;
 import java.awt.FileDialog;
 import java.awt.Frame;
 import java.awt.Menu;
@@ -24,6 +25,7 @@ public class MenuController extends MenuBar {
 
   private Frame parent; // het frame, alleen gebruikt als ouder voor de Dialogs
   private Presentation presentation; // Er worden commando's gegeven aan de presentatie
+  private Command undoCommand;
 
   private static final long serialVersionUID = 227L;
 
@@ -39,6 +41,7 @@ public class MenuController extends MenuBar {
   protected static final String PREV = "Prev";
   protected static final String SAVE = "Save";
   protected static final String VIEW = "View";
+  protected static final String UNDO = "Undo";
 
   protected static final String TESTFILE = "test.xml";
   protected static final String SAVEFILE = "dump.xml";
@@ -134,10 +137,25 @@ public class MenuController extends MenuBar {
       }
     });
     setHelpMenu(helpMenu);    // nodig for portability (Motif, etc.).
+
+    Menu editMenu = new Menu("Edit");
+    editMenu.add(menuItem = mkMenuItem(UNDO));
+    menuItem.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent actionEvent) {
+        if (undoCommand != null) {
+          undoCommand.execute();
+        }
+      }
+    });
+    add(editMenu);
   }
 
   // een menu-item aanmaken
   public MenuItem mkMenuItem(String name) {
     return new MenuItem(name, new MenuShortcut(name.charAt(0)));
+  }
+
+  public void setUndoCommand(Command undoCommand) {
+    this.undoCommand = undoCommand;
   }
 }
