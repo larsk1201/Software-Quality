@@ -28,4 +28,4 @@ jobs:
 
       - name: Run Checkstyle
         run: |
-          java -jar checkstyle.jar -c ./checkstyle.xml $(find jabberpoint-main/src -name "*.java")
+          java -jar checkstyle.jar -c ./checkstyle.xml $(find Jabberpoint-main/src -name "*.java")
