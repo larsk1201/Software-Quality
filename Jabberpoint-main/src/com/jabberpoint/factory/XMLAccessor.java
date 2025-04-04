@@ -19,24 +19,9 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-
-/**
- * com.jabberpoint.factory.XMLAccessor, reads and writes XML files
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
 public class XMLAccessor extends Accessor {
 
-  /**
-   * Default API to use.
-   */
   protected static final String DEFAULT_API_TO_USE = "dom";
-
-  /**
-   * namen van xml tags of attributen
-   */
   protected static final String SHOWTITLE = "showtitle";
   protected static final String SLIDETITLE = "title";
   protected static final String SLIDE = "slide";
@@ -45,27 +30,24 @@ public class XMLAccessor extends Accessor {
   protected static final String KIND = "kind";
   protected static final String TEXT = "text";
   protected static final String IMAGE = "image";
-
-  /**
-   * tekst van messages
-   */
   protected static final String PCE = "Parser Configuration Exception";
   protected static final String UNKNOWNTYPE = "Unknown Element type";
   protected static final String NFE = "Number Format Exception";
 
-
   private String getTitle(Element element, String tagName) {
     NodeList titles = element.getElementsByTagName(tagName);
     return titles.item(0).getTextContent();
-
   }
 
   public void loadFile(Presentation presentation, String filename) throws IOException {
     int slideNumber, itemNumber, max = 0, maxItems = 0;
     try {
       DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-      Document document = builder.parse(new File(filename)); // maak een JDOM document
+      Document document = builder.parse(new File(filename));
       Element doc = document.getDocumentElement();
+
+      presentation.clear();
+
       presentation.setTitle(getTitle(doc, SHOWTITLE));
 
       NodeList slides = doc.getElementsByTagName(SLIDE);
@@ -93,7 +75,7 @@ public class XMLAccessor extends Accessor {
   }
 
   protected void loadSlideItem(Slide slide, Element item) {
-    int level = 1; // default
+    int level = 1;
     NamedNodeMap attributes = item.getAttributes();
     String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
     if (leveltext != null) {
@@ -150,3 +132,4 @@ public class XMLAccessor extends Accessor {
     out.close();
   }
 }
+

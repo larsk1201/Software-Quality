@@ -4,16 +4,10 @@ import com.jabberpoint.ui.BitmapItem;
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.ui.Slide;
 
-/**
- * Een ingebouwde demo-presentatie
- *
- * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
- * @version 1.6 2014/05/16 Sylvia Stuurman
- */
-
 class DemoPresentation extends Accessor {
 
   public void loadFile(Presentation presentation, String unusedFilename) {
+    presentation.clear();
     presentation.setTitle("Demo com.jabberpoint.util.Presentation");
     Slide slide;
     slide = new Slide();
@@ -44,7 +38,7 @@ class DemoPresentation extends Accessor {
 
   @Override
   public void saveFile(Presentation presentation, String unusedFilename) {
-    // Provide a no-op implementation or handle appropriately
     System.out.println("DemoPresentation does not support saving.");
   }
 }
+

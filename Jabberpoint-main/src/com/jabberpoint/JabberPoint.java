@@ -18,7 +18,6 @@ import com.jabberpoint.util.Style;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-// Java
 public class JabberPoint {
   public static void main(String[] argv) {
     Style.createStyles();
@@ -45,12 +44,18 @@ public class JabberPoint {
     menuController.setDeleteSlideCommand(deleteSlideCommand);
 
     try {
+      // The presentation is already empty at this point, but we'll make sure
+      // the accessors clear it before loading
       if (argv.length == 0) {
         Accessor.getDemoAccessor().loadFile(presentation, "");
       } else {
         new XMLAccessor().loadFile(presentation, argv[0]);
       }
-      presentation.setSlideNumber(0);
+
+      if (presentation.getSize() > 0) {
+        presentation.setSlideNumber(0);
+      }
+
       frame.repaint();
       caretaker.clearHistory();
     } catch (IOException ex) {
@@ -58,3 +63,4 @@ public class JabberPoint {
     }
   }
 }
+

@@ -75,8 +75,17 @@ public class MenuController extends MenuBar {
     String fileName = fileDialog.getFile();
     if (fileName != null) {
       try {
+        // The XMLAccessor will now clear the presentation before loading
         new XMLAccessor().loadFile(presentation, fileDialog.getDirectory() + fileName);
+        if (presentation.getSize() > 0) {
+          presentation.setSlideNumber(0);
+        }
+        parent.repaint();
       } catch (IOException ex) {
+        JOptionPane.showMessageDialog(parent,
+            "IO Error: " + ex.getMessage(),
+            "Load Error",
+            JOptionPane.ERROR_MESSAGE);
         ex.printStackTrace();
       }
     }
@@ -95,6 +104,10 @@ public class MenuController extends MenuBar {
       try {
         new XMLAccessor().saveFile(presentation, fileDialog.getDirectory() + fileName);
       } catch (IOException ex) {
+        JOptionPane.showMessageDialog(parent,
+            "IO Error: " + ex.getMessage(),
+            "Save Error",
+            JOptionPane.ERROR_MESSAGE);
         ex.printStackTrace();
       }
     }
@@ -105,8 +118,15 @@ public class MenuController extends MenuBar {
     if (input != null) {
       try {
         int slideNumber = Integer.parseInt(input);
-        presentation.setSlideNumber(slideNumber - 1); // Assuming slide numbers are 1-based
-        parent.repaint();
+        if (slideNumber > 0 && slideNumber <= presentation.getSize()) {
+          presentation.setSlideNumber(slideNumber - 1); // Assuming slide numbers are 1-based
+          parent.repaint();
+        } else {
+          JOptionPane.showMessageDialog(parent,
+              "Invalid slide number. Please enter a number between 1 and " + presentation.getSize(),
+              "Error",
+              JOptionPane.ERROR_MESSAGE);
+        }
       } catch (NumberFormatException ex) {
         JOptionPane.showMessageDialog(parent, "Invalid slide number", "Error", JOptionPane.ERROR_MESSAGE);
       }
@@ -125,3 +145,4 @@ public class MenuController extends MenuBar {
     this.undoCommand = undoCommand;
   }
 }
+
