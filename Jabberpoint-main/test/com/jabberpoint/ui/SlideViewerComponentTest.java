@@ -18,44 +18,44 @@ import javax.swing.JFrame;
 public class SlideViewerComponentTest {
 
     private SlideViewerComponent component;
-    
+
     @Mock
     private Presentation mockPresentation;
-    
+
     @Mock
     private JFrame mockFrame;
-    
+
     @Mock
     private Graphics mockGraphics;
-    
+
     @Mock
     private Slide mockSlide;
-    
+
     @Before
     public void setUp() {
         Style.createStyles();
         component = new SlideViewerComponent(mockPresentation, mockFrame);
     }
-    
+
     @Test
     public void componentCreationSucceeds() {
         assertNotNull(component);
     }
-    
+
     @Test
     public void getPreferredSizeReturnsCorrectDimensions() {
         Dimension size = component.getPreferredSize();
         assertEquals(Slide.WIDTH, size.width);
         assertEquals(Slide.HEIGHT, size.height);
     }
-    
+
     @Test
     public void updateChangesSlideAndUpdatesFrameTitle() {
         when(mockPresentation.getTitle()).thenReturn("Test Title");
         component.update(mockPresentation, mockSlide);
         verify(mockFrame).setTitle("Test Title");
     }
-    
+
     @Test
     public void paintComponentDrawsSlideInformation() {
         when(mockPresentation.getSlideNumber()).thenReturn(0);

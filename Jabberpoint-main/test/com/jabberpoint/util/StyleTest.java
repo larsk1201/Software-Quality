@@ -13,29 +13,29 @@ public class StyleTest {
     public void setUp() {
         Style.createStyles();
     }
-    
+
     @Test
     public void createStylesInitializesStylesWithCorrectProperties() {
         Style style0 = Style.getStyle(0);
         Style style1 = Style.getStyle(1);
-        
+
         assertNotNull(style0);
         assertNotNull(style1);
-        
+
         assertEquals(0, style0.indent);
         assertEquals(Color.red, style0.color);
-        
+
         assertEquals(20, style1.indent);
         assertEquals(Color.blue, style1.color);
     }
-    
+
     @Test
     public void getStyleWithIndexBeyondRangeReturnsLastStyle() {
         Style style = Style.getStyle(10);
         assertNotNull(style);
         assertEquals(90, style.indent);
     }
-    
+
     @Test
     public void styleConstructorSetsAllProperties() {
         Style style = new Style(15, Color.green, 24, 8);
@@ -44,7 +44,7 @@ public class StyleTest {
         assertEquals(24, style.fontSize);
         assertEquals(8, style.leading);
     }
-    
+
     @Test
     public void getFontReturnsScaledFont() {
         Style style = new Style(15, Color.green, 24, 8);
@@ -53,7 +53,7 @@ public class StyleTest {
         assertEquals(24, font1.getSize());
         assertEquals(48, font2.getSize());
     }
-    
+
     @Test
     public void toStringContainsAllStyleProperties() {
         Style style = new Style(15, Color.green, 24, 8);

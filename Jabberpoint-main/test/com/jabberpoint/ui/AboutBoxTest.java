@@ -12,7 +12,7 @@ public class AboutBoxTest {
 
     @Mock
     private Frame mockFrame;
-    
+
     @Test
     public void showMethodDoesNotThrowExceptions() {
         try {

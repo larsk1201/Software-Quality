@@ -22,62 +22,62 @@ public class SlideItemTest {
 
     @Mock
     private Graphics mockGraphics;
-    
+
     @Mock
     private Graphics2D mockGraphics2D;
-    
+
     @Mock
     private ImageObserver mockObserver;
-    
+
     @Mock
     private FontMetrics mockFontMetrics;
-    
+
     private Style testStyle;
-    
+
     @Before
     public void setUp() {
         Style.createStyles();
         testStyle = Style.getStyle(1);
-        
+
         when(mockGraphics.create()).thenReturn(mockGraphics2D);
         when(mockGraphics.getFontMetrics(any(Font.class))).thenReturn(mockFontMetrics);
         when(mockGraphics2D.getFontMetrics()).thenReturn(mockFontMetrics);
     }
-    
+
     @Test
     public void textItemConstructorSetsLevelAndText() {
         TextItem item = new TextItem(1, "Test Text");
         assertEquals(1, item.getLevel());
         assertEquals("Test Text", item.getText());
     }
-    
+
     @Test
     public void textItemEmptyConstructorSetsDefaultLevelAndText() {
         TextItem item = new TextItem();
         assertEquals(0, item.getLevel());
         assertNotEquals("", item.getText());
     }
-    
+
     @Test
     public void textItemGetAttributedStringReturnsNonNullAttributedString() {
         TextItem item = new TextItem(1, "Test Text");
         java.text.AttributedString result = item.getAttributedString(testStyle, 1.0f);
         assertNotNull(result);
     }
-    
+
     @Test
     public void textItemGetBoundingBoxReturnsNonNullRectangle() {
         TextItem item = new TextItem(1, "Test Text");
         Rectangle box = item.getBoundingBox(mockGraphics, mockObserver, 1.0f, testStyle);
         assertNotNull(box);
     }
-    
+
     @Test
     public void textItemDrawDoesNotThrowExceptions() {
         TextItem item = new TextItem(1, "Test Text");
         item.draw(10, 10, 1.0f, mockGraphics, testStyle, mockObserver);
     }
-    
+
     @Test
     public void bitmapItemConstructorSetsLevelImageAndName() {
         BufferedImage testImage = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
@@ -86,7 +86,7 @@ public class SlideItemTest {
         assertEquals("test.jpg", item.getName());
         assertSame(testImage, item.getBufferedImage());
     }
-    
+
     @Test
     public void bitmapItemGetBoundingBoxReturnsNonNullRectangle() {
         BufferedImage testImage = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
@@ -94,7 +94,7 @@ public class SlideItemTest {
         Rectangle box = item.getBoundingBox(mockGraphics, mockObserver, 1.0f, testStyle);
         assertNotNull(box);
     }
-    
+
     @Test
     public void bitmapItemDrawDoesNotThrowExceptions() {
         BufferedImage testImage = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);

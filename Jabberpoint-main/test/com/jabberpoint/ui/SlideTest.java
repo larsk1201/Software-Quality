@@ -18,32 +18,32 @@ import java.util.Vector;
 public class SlideTest {
 
     private Slide slide;
-    
+
     @Mock
     private Graphics mockGraphics;
-    
+
     @Mock
     private ImageObserver mockObserver;
-    
+
     @Before
     public void setUp() {
         slide = new Slide();
         Style.createStyles();
     }
-    
+
     @Test
     public void newSlideHasZeroSizeAndNullTitle() {
         assertNotNull(slide);
         assertEquals(0, slide.getSize());
         assertNull(slide.getTitle());
     }
-    
+
     @Test
     public void setTitleChangesTheTitleOfTheSlide() {
         slide.setTitle("Test Title");
         assertEquals("Test Title", slide.getTitle());
     }
-    
+
     @Test
     public void appendSlideItemAddsItemToSlideAndIncreasesSize() {
         SlideItem item = new TextItem(1, "Test Item");
@@ -51,7 +51,7 @@ public class SlideTest {
         assertEquals(1, slide.getSize());
         assertEquals(item, slide.getSlideItem(0));
     }
-    
+
     @Test
     public void appendWithLevelAndStringCreatesAndAddsTextItem() {
         slide.append(1, "Test Text");
@@ -61,7 +61,7 @@ public class SlideTest {
         assertEquals(1, item.getLevel());
         assertEquals("Test Text", ((TextItem)item).getText());
     }
-    
+
     @Test
     public void getSlideItemsReturnsAllItemsInTheSlide() {
         slide.append(1, "Item 1");
@@ -69,7 +69,7 @@ public class SlideTest {
         Vector<SlideItem> items = slide.getSlideItems();
         assertEquals(2, items.size());
     }
-    
+
     @Test
     public void drawRendersTheSlideTitleAndAllItems() {
         slide.setTitle("Test Slide");

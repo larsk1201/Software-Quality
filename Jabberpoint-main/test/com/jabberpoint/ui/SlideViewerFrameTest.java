@@ -16,27 +16,27 @@ public class SlideViewerFrameTest {
 
     @Mock
     private Presentation mockPresentation;
-    
+
     @Test
     public void frameCreationDoesNotThrowExceptions() {
         try {
             Style.createStyles();
-            
+
             SlideViewerFrame frame = new SlideViewerFrame("Test Frame", mockPresentation) {
                 @Override
                 public void setVisible(boolean visible) {
                 }
             };
-            
+
             assertNotNull(frame);
             assertNotNull(frame.getKeyController());
-            
+
             frame.dispose();
         } catch (Exception e) {
             fail("Exception should not be thrown: " + e.getMessage());
         }
     }
-    
+
     @Test
     public void getKeyControllerReturnsNonNullKeyController() {
         Style.createStyles();
@@ -45,11 +45,11 @@ public class SlideViewerFrameTest {
             public void setVisible(boolean visible) {
             }
         };
-        
+
         KeyController controller = frame.getKeyController();
-        
+
         assertNotNull(controller);
-        
+
         frame.dispose();
     }
 }

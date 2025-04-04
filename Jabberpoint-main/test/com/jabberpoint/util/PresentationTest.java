@@ -17,28 +17,28 @@ import java.util.ArrayList;
 public class PresentationTest {
 
     private Presentation presentation;
-    
+
     @Mock
     private SlideViewerComponent mockViewer;
-    
+
     @Before
     public void setUp() {
         presentation = new Presentation(mockViewer);
     }
-    
+
     @Test
     public void newPresentationHasZeroSizeAndNegativeOneSlideNumber() {
         assertNotNull(presentation);
         assertEquals(0, presentation.getSize());
         assertEquals(-1, presentation.getSlideNumber());
     }
-    
+
     @Test
     public void setTitleChangesTheTitleOfThePresentation() {
         presentation.setTitle("Test Presentation");
         assertEquals("Test Presentation", presentation.getTitle());
     }
-    
+
     @Test
     public void appendSlideAddsSlideAndIncreasesSize() {
         Slide slide = new Slide();
@@ -47,7 +47,7 @@ public class PresentationTest {
         assertEquals(1, presentation.getSize());
         assertSame(slide, presentation.getSlide(0));
     }
-    
+
     @Test
     public void setSlideNumberChangesCurrentSlideAndUpdatesViewer() {
         Slide slide1 = new Slide();
@@ -58,7 +58,7 @@ public class PresentationTest {
         assertEquals(1, presentation.getSlideNumber());
         verify(mockViewer, times(1)).update(presentation, slide2);
     }
-    
+
     @Test
     public void nextSlideIncrementsSlideNumberWhenNotAtEnd() {
         Slide slide1 = new Slide();
@@ -69,7 +69,7 @@ public class PresentationTest {
         presentation.nextSlide();
         assertEquals(1, presentation.getSlideNumber());
     }
-    
+
     @Test
     public void nextSlideDoesNotChangeSlideNumberWhenAtEnd() {
         Slide slide = new Slide();
@@ -78,7 +78,7 @@ public class PresentationTest {
         presentation.nextSlide();
         assertEquals(0, presentation.getSlideNumber());
     }
-    
+
     @Test
     public void prevSlideDecrementsSlideNumberWhenNotAtBeginning() {
         Slide slide1 = new Slide();
@@ -89,7 +89,7 @@ public class PresentationTest {
         presentation.prevSlide();
         assertEquals(0, presentation.getSlideNumber());
     }
-    
+
     @Test
     public void prevSlideDoesNotChangeSlideNumberWhenAtBeginning() {
         Slide slide = new Slide();
@@ -98,7 +98,7 @@ public class PresentationTest {
         presentation.prevSlide();
         assertEquals(0, presentation.getSlideNumber());
     }
-    
+
     @Test
     public void clearRemovesAllSlidesAndResetsSlideNumber() {
         Slide slide = new Slide();
@@ -108,7 +108,7 @@ public class PresentationTest {
         assertEquals(0, presentation.getSize());
         assertEquals(-1, presentation.getSlideNumber());
     }
-    
+
     @Test
     public void deleteSlideRemovesSlideAndAdjustsCurrentSlideNumber() {
         Slide slide1 = new Slide();
@@ -123,7 +123,7 @@ public class PresentationTest {
         assertEquals(1, presentation.getSlideNumber());
         assertSame(slide3, presentation.getCurrentSlide());
     }
-    
+
     @Test
     public void deleteLastSlideMovesCurrentSlideNumberToPreviousSlide() {
         Slide slide1 = new Slide();
@@ -135,7 +135,7 @@ public class PresentationTest {
         assertEquals(1, presentation.getSize());
         assertEquals(0, presentation.getSlideNumber());
     }
-    
+
     @Test
     public void deleteAllSlidesResetsSlideNumberToNegativeOne() {
         Slide slide = new Slide();
@@ -145,7 +145,7 @@ public class PresentationTest {
         assertEquals(0, presentation.getSize());
         assertEquals(-1, presentation.getSlideNumber());
     }
-    
+
     @Test
     public void createMementoSavesCurrentTitleAndSlides() {
         presentation.setTitle("Test Presentation");
@@ -156,7 +156,7 @@ public class PresentationTest {
         assertEquals("Test Presentation", memento.getSavedTitle());
         assertEquals(1, memento.getSavedSlides().size());
     }
-    
+
     @Test
     public void restoreMementoReplacesCurrentTitleAndSlidesAndResetsSlideNumber() {
         ArrayList<Slide> slides = new ArrayList<>();

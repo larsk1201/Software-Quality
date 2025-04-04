@@ -19,14 +19,14 @@ public class MementoTest {
         assertEquals(title, memento.getSavedTitle());
         assertEquals(slides, memento.getSavedSlides());
     }
-    
+
     @Test
     public void setSavedTitleChangesTheTitleInMemento() {
         Memento memento = new Memento("Old Title", new ArrayList<>());
         memento.setSavedTitle("New Title");
         assertEquals("New Title", memento.getSavedTitle());
     }
-    
+
     @Test
     public void setSavedSlidesChangesTheSlidesInMemento() {
         Memento memento = new Memento("Title", new ArrayList<>());
@@ -35,7 +35,7 @@ public class MementoTest {
         memento.setSavedSlides(newSlides);
         assertEquals(newSlides, memento.getSavedSlides());
     }
-    
+
     @Test
     public void presentationCaretakerSaveAndLoadRestoresPresentationState() {
         PresentationCaretaker caretaker = new PresentationCaretaker();
@@ -46,7 +46,7 @@ public class MementoTest {
         caretaker.load(presentation);
         assertEquals("Original Title", presentation.getTitle());
     }
-    
+
     @Test
     public void presentationCaretakerSupportsMultipleUndos() {
         PresentationCaretaker caretaker = new PresentationCaretaker();
@@ -62,7 +62,7 @@ public class MementoTest {
         caretaker.load(presentation);
         assertEquals("State 1", presentation.getTitle());
     }
-    
+
     @Test
     public void presentationCaretakerLoadWithEmptyHistoryDoesNotChangePresentation() {
         PresentationCaretaker caretaker = new PresentationCaretaker();
@@ -71,7 +71,7 @@ public class MementoTest {
         caretaker.load(presentation);
         assertEquals("Original Title", presentation.getTitle());
     }
-    
+
     @Test
     public void getAndSetHistoryChangesTheHistoryStackInCaretaker() {
         PresentationCaretaker caretaker = new PresentationCaretaker();
@@ -84,21 +84,21 @@ public class MementoTest {
         assertEquals(1, retrievedHistory.size());
         assertEquals("Test", retrievedHistory.peek().getSavedTitle());
     }
-    
+
     @Test
     public void clearHistoryRemovesAllMementosFromHistory() {
         PresentationCaretaker caretaker = new PresentationCaretaker();
         Presentation presentation = new Presentation();
-        
+
         caretaker.save(presentation);
         caretaker.save(presentation);
         caretaker.save(presentation);
-        
+
         assertFalse(caretaker.getHistory().isEmpty());
         assertEquals(3, caretaker.getHistory().size());
-        
+
         caretaker.clearHistory();
-        
+
         assertTrue(caretaker.getHistory().isEmpty());
         assertEquals(0, caretaker.getHistory().size());
     }
