@@ -13,6 +13,7 @@ import com.jabberpoint.memento.PresentationCaretaker;
 import com.jabberpoint.ui.Slide;
 import com.jabberpoint.util.Presentation;
 import java.util.Stack;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -29,6 +30,11 @@ public class CommandTest {
 
     @Mock
     private Stack<Memento> mockStack;
+
+    @Before
+    public void setUp() {
+        System.setProperty("java.awt.headless", "true");
+    }
 
     @Test
     public void nextSlideCommandExecuteCallsNextSlideOnPresentation() {
@@ -138,4 +144,3 @@ public class CommandTest {
         verify(mockExitCommand, times(1)).execute();
     }
 }
-

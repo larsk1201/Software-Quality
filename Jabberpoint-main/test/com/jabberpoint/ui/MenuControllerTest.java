@@ -41,6 +41,7 @@ public class MenuControllerTest {
 
   @Before
   public void setUp() {
+    System.setProperty("java.awt.headless", "true");
     menuController = new MenuController(mockFrame, mockPresentation);
     menuController.setUndoCommand(mockUndoCommand);
     menuController.setAddSlideCommand(mockAddSlideCommand);
@@ -239,4 +240,3 @@ public class MenuControllerTest {
     }
   }
 }
-

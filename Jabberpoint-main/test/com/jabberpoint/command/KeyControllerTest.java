@@ -9,6 +9,7 @@ import static org.mockito.Mockito.verify;
 import com.jabberpoint.util.Presentation;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -31,6 +32,11 @@ public class KeyControllerTest {
 
   @Mock
   private Command mockUndoCommand;
+
+  @Before
+  public void setUp() {
+    System.setProperty("java.awt.headless", "true");
+  }
 
   @Test
   public void keyPressedWithNextKeysExecutesNextCommand() {
@@ -131,4 +137,3 @@ public class KeyControllerTest {
     assertSame(mockUndoCommand, controller.getUndoCommand());
   }
 }
-
