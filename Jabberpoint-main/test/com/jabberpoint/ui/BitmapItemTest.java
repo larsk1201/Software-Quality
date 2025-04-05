@@ -101,7 +101,7 @@ public class BitmapItemTest {
 
   @Test
   public void toStringReturnsCorrectFormat() {
-    BitmapItem item = new BitmapItem(2, (BufferedImage)null, "test.jpg");
+    BitmapItem item = new BitmapItem(2, (BufferedImage) null, "test.jpg");
     String result = item.toString();
     assertTrue(result.contains("BitmapItem"));
     assertTrue(result.contains("2"));
@@ -118,7 +118,7 @@ public class BitmapItemTest {
 
   @Test
   public void drawWithNullImageDoesNotThrowException() {
-    BitmapItem item = new BitmapItem(1, (BufferedImage)null, "test.jpg");
+    BitmapItem item = new BitmapItem(1, (BufferedImage) null, "test.jpg");
 
     // This should not throw an exception
     try {
@@ -132,7 +132,7 @@ public class BitmapItemTest {
 
   @Test
   public void getBoundingBoxWithNullImageReturnsMinimalRectangle() {
-    BitmapItem item = new BitmapItem(1, (BufferedImage)null, "test.jpg");
+    BitmapItem item = new BitmapItem(1, (BufferedImage) null, "test.jpg");
 
     try {
       Rectangle box = new Rectangle(testStyle.indent, 0, 0, testStyle.leading);

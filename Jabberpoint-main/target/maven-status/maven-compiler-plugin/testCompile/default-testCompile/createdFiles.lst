@@ -1,4 +1,3 @@
-com\jabberpoint\ui\SlideViewerFrameTest$TestableSlideViewerFrame.class
 com\jabberpoint\command\DeleteSlideCommandTest.class
 com\jabberpoint\ui\SlideTest.class
 com\jabberpoint\command\DeleteSlideCommandTest$2.class
@@ -12,14 +11,12 @@ com\jabberpoint\factory\XMLAccessorTest.class
 com\jabberpoint\command\CommandTest$1.class
 com\jabberpoint\ui\TextItemTest.class
 com\jabberpoint\factory\DemoPresentationTest.class
-com\jabberpoint\ui\MenuControllerTest.class
 com\jabberpoint\util\StyleTest.class
 com\jabberpoint\command\ExitCommandTest.class
 com\jabberpoint\factory\AccessorFactoryTest.class
 com\jabberpoint\util\PresentationTest.class
 com\jabberpoint\command\ExitCommandTest$1.class
 com\jabberpoint\ui\SlideItemTest.class
-com\jabberpoint\ui\SlideViewerFrameTest.class
 com\jabberpoint\ui\AboutBoxTest.class
 com\jabberpoint\command\AddSlideCommandTest$1.class
 com\jabberpoint\ui\SlideTest$1.class

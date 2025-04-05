@@ -18,35 +18,35 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class UndoCommandTest {
 
-    @Mock
-    private Presentation mockPresentation;
+  @Mock
+  private Presentation mockPresentation;
 
-    @Mock
-    private PresentationCaretaker mockCaretaker;
+  @Mock
+  private PresentationCaretaker mockCaretaker;
 
-    @Mock
-    private Stack<Memento> mockStack;
+  @Mock
+  private Stack<Memento> mockStack;
 
-    @Test
-    public void undoCommandExecuteCallsLoadOnCaretakerWhenHistoryIsNotEmpty() {
-        when(mockCaretaker.getHistory()).thenReturn(mockStack);
-        when(mockStack.isEmpty()).thenReturn(false);
+  @Test
+  public void undoCommandExecuteCallsLoadOnCaretakerWhenHistoryIsNotEmpty() {
+    when(mockCaretaker.getHistory()).thenReturn(mockStack);
+    when(mockStack.isEmpty()).thenReturn(false);
 
-        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, null);
-        command.execute();
+    UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, null);
+    command.execute();
 
-        verify(mockCaretaker, times(1)).load(mockPresentation);
-    }
+    verify(mockCaretaker, times(1)).load(mockPresentation);
+  }
 
-    @Test
-    public void undoCommandExecuteDoesNotCallLoadOnCaretakerWhenHistoryIsEmpty() {
-        when(mockCaretaker.getHistory()).thenReturn(mockStack);
-        when(mockStack.isEmpty()).thenReturn(true);
+  @Test
+  public void undoCommandExecuteDoesNotCallLoadOnCaretakerWhenHistoryIsEmpty() {
+    when(mockCaretaker.getHistory()).thenReturn(mockStack);
+    when(mockStack.isEmpty()).thenReturn(true);
 
-        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, null);
-        command.execute();
+    UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, null);
+    command.execute();
 
-        verify(mockCaretaker, never()).load(any(Presentation.class));
-    }
+    verify(mockCaretaker, never()).load(any(Presentation.class));
+  }
 }
 

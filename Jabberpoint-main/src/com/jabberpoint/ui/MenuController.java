@@ -15,6 +15,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 public class MenuController extends MenuBar {
+
   private Frame parent;
   private Presentation presentation;
   private Command addSlideCommand;
@@ -127,7 +128,8 @@ public class MenuController extends MenuBar {
               JOptionPane.ERROR_MESSAGE);
         }
       } catch (NumberFormatException ex) {
-        JOptionPane.showMessageDialog(parent, "Invalid slide number", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(parent, "Invalid slide number", "Error",
+            JOptionPane.ERROR_MESSAGE);
       }
     }
   }

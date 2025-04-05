@@ -11,7 +11,8 @@ public class DeleteSlideCommand implements Command {
   private Frame parent;
   private PresentationCaretaker caretaker;
 
-  public DeleteSlideCommand(Presentation presentation, Frame parent, PresentationCaretaker caretaker) {
+  public DeleteSlideCommand(Presentation presentation, Frame parent,
+      PresentationCaretaker caretaker) {
     this.presentation = presentation;
     this.parent = parent;
     this.caretaker = caretaker;

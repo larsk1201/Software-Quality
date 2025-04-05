@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.jabberpoint.factory.AccessorTest" time="0.124" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.jabberpoint.factory.AccessorTest" time="0.208" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="javafx.platform" value="headless"/>
     <property name="java.specification.version" value="17"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="NL"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Microsoft\jdk-17.0.12.7-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Gebruiker\AppData\Local\Temp\surefire14651560582975712565\surefirebooter-20250405225219825_3.jar C:\Users\Gebruiker\AppData\Local\Temp\surefire14651560582975712565 2025-04-05T22-52-19_617-jvmRun1 surefire-20250405225219825_1tmp surefire_0-20250405225219825_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Gebruiker\AppData\Local\Temp\surefire943836559810639309\surefirebooter-20250405230228932_3.jar C:\Users\Gebruiker\AppData\Local\Temp\surefire943836559810639309 2025-04-05T23-02-28_689-jvmRun1 surefire-20250405230228932_1tmp surefire_0-20250405230228932_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Gebruiker\Downloads\Software Quality\Software-Quality\Jabberpoint-main\target\test-classes;C:\Users\Gebruiker\Downloads\Software Quality\Software-Quality\Jabberpoint-main\target\classes;C:\Users\Gebruiker\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Gebruiker\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Gebruiker\.m2\repository\org\mockito\mockito-core\4.0.0\mockito-core-4.0.0.jar;C:\Users\Gebruiker\.m2\repository\net\bytebuddy\byte-buddy\1.11.19\byte-buddy-1.11.19.jar;C:\Users\Gebruiker\.m2\repository\net\bytebuddy\byte-buddy-agent\1.11.19\byte-buddy-agent-1.11.19.jar;C:\Users\Gebruiker\.m2\repository\org\objenesis\objenesis\3.2\objenesis-3.2.jar;C:\Users\Gebruiker\.m2\repository\org\testfx\testfx-core\4.0.16-alpha\testfx-core-4.0.16-alpha.jar;C:\Users\Gebruiker\.m2\repository\org\assertj\assertj-core\3.13.2\assertj-core-3.13.2.jar;C:\Users\Gebruiker\.m2\repository\org\testfx\testfx-junit5\4.0.16-alpha\testfx-junit5-4.0.16-alpha.jar;C:\Users\Gebruiker\.m2\repository\org\testfx\openjfx-monocle\jdk-11+26\openjfx-monocle-jdk-11+26.jar;C:\Users\Gebruiker\.m2\repository\org\openjfx\javafx-base\11-ea+25\javafx-base-11-ea+25-win.jar;C:\Users\Gebruiker\.m2\repository\org\openjfx\javafx-controls\11-ea+25\javafx-controls-11-ea+25-win.jar;C:\Users\Gebruiker\.m2\repository\org\openjfx\javafx-graphics\11-ea+25\javafx-graphics-11-ea+25.jar;C:\Users\Gebruiker\.m2\repository\org\openjfx\javafx-graphics\11-ea+25\javafx-graphics-11-ea+25-win.jar;C:\Users\Gebruiker\.m2\repository\org\openjfx\javafx-base\11-ea+25\javafx-base-11-ea+25.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -35,7 +35,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="testfx.robot" value="glass"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\Gebruiker\AppData\Local\Temp\surefire14651560582975712565\surefirebooter-20250405225219825_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Gebruiker\AppData\Local\Temp\surefire943836559810639309\surefirebooter-20250405230228932_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.12+7-LTS"/>
@@ -64,17 +64,17 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="accessorFactoryCreateAccessorWithDemoReturnsDemoPresentation" classname="com.jabberpoint.factory.AccessorTest" time="0.079"/>
-  <testcase name="xmlAccessorSaveFileCreatesFileWithCorrectContent" classname="com.jabberpoint.factory.AccessorTest" time="0.016"/>
-  <testcase name="accessorDefaultConstructorDoesNotThrowExceptions" classname="com.jabberpoint.factory.AccessorTest" time="0.002"/>
-  <testcase name="accessorFactoryCreateAccessorWithInvalidTypeThrowsIllegalArgumentException" classname="com.jabberpoint.factory.AccessorTest" time="0.001"/>
-  <testcase name="xmlAccessorLoadFileClearsAndSetsCorrectTitleAndAppendsSlide" classname="com.jabberpoint.factory.AccessorTest" time="0.008"/>
+  <testcase name="accessorFactoryCreateAccessorWithDemoReturnsDemoPresentation" classname="com.jabberpoint.factory.AccessorTest" time="0.144"/>
+  <testcase name="xmlAccessorSaveFileCreatesFileWithCorrectContent" classname="com.jabberpoint.factory.AccessorTest" time="0.031"/>
+  <testcase name="accessorDefaultConstructorDoesNotThrowExceptions" classname="com.jabberpoint.factory.AccessorTest" time="0.001"/>
+  <testcase name="accessorFactoryCreateAccessorWithInvalidTypeThrowsIllegalArgumentException" classname="com.jabberpoint.factory.AccessorTest" time="0.003"/>
+  <testcase name="xmlAccessorLoadFileClearsAndSetsCorrectTitleAndAppendsSlide" classname="com.jabberpoint.factory.AccessorTest" time="0.011"/>
   <testcase name="demoPresentationLoadFileClearsAndSetsTitleAndAppendsMultipleSlides" classname="com.jabberpoint.factory.AccessorTest" time="0.003"/>
-  <testcase name="demoPresentationSaveFileOutputsMessage" classname="com.jabberpoint.factory.AccessorTest" time="0.006">
+  <testcase name="demoPresentationSaveFileOutputsMessage" classname="com.jabberpoint.factory.AccessorTest" time="0.011">
     <system-out><![CDATA[DemoPresentation does not support saving.
 ]]></system-out>
   </testcase>
   <testcase name="accessorFactoryCreateAccessorWithXMLReturnsXMLAccessor" classname="com.jabberpoint.factory.AccessorTest" time="0.0"/>
   <testcase name="getDemoAccessorReturnsInstanceOfDemoPresentation" classname="com.jabberpoint.factory.AccessorTest" time="0.0"/>
-  <testcase name="accessorConstantsHaveCorrectValues" classname="com.jabberpoint.factory.AccessorTest" time="0.002"/>
+  <testcase name="accessorConstantsHaveCorrectValues" classname="com.jabberpoint.factory.AccessorTest" time="0.0"/>
 </testsuite>

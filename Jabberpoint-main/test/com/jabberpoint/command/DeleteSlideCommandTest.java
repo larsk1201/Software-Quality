@@ -31,7 +31,8 @@ public class DeleteSlideCommandTest {
     when(mockPresentation.getSize()).thenReturn(2);
     when(mockPresentation.getSlideNumber()).thenReturn(1);
 
-    DeleteSlideCommand command = new DeleteSlideCommand(mockPresentation, mockFrame, mockCaretaker) {
+    DeleteSlideCommand command = new DeleteSlideCommand(mockPresentation, mockFrame,
+        mockCaretaker) {
       @Override
       public void execute() {
         if (mockPresentation.getSize() <= 0) {
@@ -56,7 +57,8 @@ public class DeleteSlideCommandTest {
   public void executeDoesNothingWhenNoSlides() {
     when(mockPresentation.getSize()).thenReturn(0);
 
-    DeleteSlideCommand command = new DeleteSlideCommand(mockPresentation, mockFrame, mockCaretaker) {
+    DeleteSlideCommand command = new DeleteSlideCommand(mockPresentation, mockFrame,
+        mockCaretaker) {
       @Override
       public void execute() {
         if (mockPresentation.getSize() <= 0) {

@@ -22,7 +22,8 @@ public class AddSlideCommand implements Command {
   public void execute() {
     Slide newSlide = new Slide();
 
-    String title = JOptionPane.showInputDialog(parent, "Enter slide title:", "New Slide", JOptionPane.QUESTION_MESSAGE);
+    String title = JOptionPane.showInputDialog(parent, "Enter slide title:", "New Slide",
+        JOptionPane.QUESTION_MESSAGE);
 
     if (title == null) {
       return;

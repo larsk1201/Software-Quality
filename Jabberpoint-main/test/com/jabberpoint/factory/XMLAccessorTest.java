@@ -136,7 +136,7 @@ public class XMLAccessorTest {
     // Verify a text item was added
     assertEquals(1, realSlide.getSize());
     assertTrue(realSlide.getSlideItem(0) instanceof TextItem);
-    assertEquals("Test Text", ((TextItem)realSlide.getSlideItem(0)).getText());
+    assertEquals("Test Text", ((TextItem) realSlide.getSlideItem(0)).getText());
   }
 
   @Test
@@ -163,7 +163,7 @@ public class XMLAccessorTest {
     // Verify an image item was added
     assertEquals(1, realSlide.getSize());
     assertTrue(realSlide.getSlideItem(0) instanceof BitmapItem);
-    assertEquals("test.jpg", ((BitmapItem)realSlide.getSlideItem(0)).getName());
+    assertEquals("test.jpg", ((BitmapItem) realSlide.getSlideItem(0)).getName());
     assertEquals(2, realSlide.getSlideItem(0).getLevel());
   }
 
@@ -257,7 +257,7 @@ public class XMLAccessorTest {
     assertEquals(1, realSlide.getSize());
     assertTrue(realSlide.getSlideItem(0) instanceof TextItem);
     assertEquals(1, realSlide.getSlideItem(0).getLevel());
-    assertEquals("Default Text", ((TextItem)realSlide.getSlideItem(0)).getText());
+    assertEquals("Default Text", ((TextItem) realSlide.getSlideItem(0)).getText());
   }
 
   @Test

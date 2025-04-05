@@ -6,7 +6,8 @@ import java.awt.Font;
 /**
  * <p>com.jabberpoint.util.Style staat voor Indent, Color, Font and Leading.</p>
  * <p>De koppeling tussen style-nummer en item-level is nu direct:
- * in com.jabberpoint.ui.Slide wordt de style opgehaald voor een item met als style-nummer het item-level.</p>
+ * in com.jabberpoint.ui.Slide wordt de style opgehaald voor een item met als style-nummer het
+ * item-level.</p>
  *
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
  * @version 1.6 2014/05/16 Sylvia Stuurman

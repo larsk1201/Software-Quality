@@ -1,6 +1,13 @@
 package com.jabberpoint;
 
-import com.jabberpoint.command.*;
+import com.jabberpoint.command.AddSlideCommand;
+import com.jabberpoint.command.Command;
+import com.jabberpoint.command.DeleteSlideCommand;
+import com.jabberpoint.command.ExitCommand;
+import com.jabberpoint.command.KeyController;
+import com.jabberpoint.command.NextSlideCommand;
+import com.jabberpoint.command.PrevSlideCommand;
+import com.jabberpoint.command.UndoCommand;
 import com.jabberpoint.factory.Accessor;
 import com.jabberpoint.factory.XMLAccessor;
 import com.jabberpoint.memento.PresentationCaretaker;
@@ -8,8 +15,8 @@ import com.jabberpoint.ui.MenuController;
 import com.jabberpoint.ui.SlideViewerFrame;
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.util.Style;
-import javax.swing.JOptionPane;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 public class JabberPoint {
 
@@ -64,7 +71,8 @@ public class JabberPoint {
       caretaker.clearHistory();
     } catch (IOException ex) {
       if (launchGUI) {
-        JOptionPane.showMessageDialog(null, "IO Error: " + ex, "Jabberpoint Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "IO Error: " + ex, "Jabberpoint Error",
+            JOptionPane.ERROR_MESSAGE);
       } else {
         System.err.println("IO Error: " + ex);
       }

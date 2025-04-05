@@ -1,7 +1,7 @@
 package com.jabberpoint.factory;
 
-import com.jabberpoint.util.Presentation;
 import com.jabberpoint.ui.Slide;
+import com.jabberpoint.util.Presentation;
 
 class DemoPresentation extends Accessor {
 
