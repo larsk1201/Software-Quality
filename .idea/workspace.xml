@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f7614912-fd80-4f65-8fc7-775211bd4903" name="Changes" comment="Implement command pattern for slide navigation and management" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2vG46BlimWdjP7SDUTHwQJ70F7k" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "acceptance",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Gebruiker/Downloads/Software Quality/Software-Quality/Jabberpoint-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gebruiker\Downloads\Software Quality\Software-Quality\Jabberpoint-main" />
+      <recent name="C:\Users\Gebruiker\Downloads\Software Quality\Software-Quality" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7614912-fd80-4f65-8fc7-775211bd4903" name="Changes" comment="" />
+      <created>1743757899103</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743757899103</updated>
+      <workItem from="1743757900333" duration="191000" />
+      <workItem from="1743760835280" duration="865000" />
+      <workItem from="1743761993040" duration="1961000" />
+      <workItem from="1743864768349" duration="3109000" />
+      <workItem from="1743868842731" duration="960000" />
+      <workItem from="1743876111602" duration="3108000" />
+      <workItem from="1743888229055" duration="919000" />
+      <workItem from="1743894016160" duration="666000" />
+      <workItem from="1743894703050" duration="302000" />
+    </task>
+    <task id="LOCAL-00001" summary="fix: update file paths in CI configuration for Maven and Checkstyle">
+      <option name="closed" value="true" />
+      <created>1743762840504</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743762840504</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: correct file paths in CI configuration for Jabberpoint">
+      <option name="closed" value="true" />
+      <created>1743762956162</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743762956162</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix: rename pom.xml to correct location in project structure">
+      <option name="closed" value="true" />
+      <created>1743763256890</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743763256890</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix: enable headless mode for Maven test execution in CI pipeline">
+      <option name="closed" value="true" />
+      <created>1743864906051</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743864906051</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: enable headless mode for Maven Surefire plugin in pom.xml">
+      <option name="closed" value="true" />
+      <created>1743865140456</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743865140456</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: enable headless mode for tests and update pom.xml dependencies">
+      <option name="closed" value="true" />
+      <created>1743865952884</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743865952884</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: update pom.xml to correct schema location and add JCenter repository">
+      <option name="closed" value="true" />
+      <created>1743866058129</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743866058129</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: add Sonatype repository and update TestFX dependency to junit5">
+      <option name="closed" value="true" />
+      <created>1743866128001</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743866128001</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: configure headless mode and update TestFX dependencies in test classes">
+      <option name="closed" value="true" />
+      <created>1743866705852</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743866705852</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: adjust formatting in DirectJabberPointTest and ensure headless mode setup">
+      <option name="closed" value="true" />
+      <created>1743866798200</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743866798200</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: refactor JabberPoint initialization and update tests for headless mode">
+      <option name="closed" value="true" />
+      <created>1743877889004</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743877889004</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: streamline setup methods in test classes for headless mode">
+      <option name="closed" value="true" />
+      <created>1743878523863</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743878523863</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: add headless mode setup in test classes for consistent environment">
+      <option name="closed" value="true" />
+      <created>1743878804278</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743878804278</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: update file paths in CI configuration for Maven and Checkstyle" />
+    <MESSAGE value="fix: correct file paths in CI configuration for Jabberpoint" />
+    <MESSAGE value="fix: rename pom.xml to correct location in project structure" />
+    <MESSAGE value="fix: enable headless mode for Maven test execution in CI pipeline" />
+    <MESSAGE value="fix: enable headless mode for Maven Surefire plugin in pom.xml" />
+    <MESSAGE value="fix: enable headless mode for tests and update pom.xml dependencies" />
+    <MESSAGE value="fix: update pom.xml to correct schema location and add JCenter repository" />
+    <MESSAGE value="fix: add Sonatype repository and update TestFX dependency to junit5" />
+    <MESSAGE value="fix: configure headless mode and update TestFX dependencies in test classes" />
+    <MESSAGE value="fix: adjust formatting in DirectJabberPointTest and ensure headless mode setup" />
+    <MESSAGE value="fix: refactor JabberPoint initialization and update tests for headless mode" />
+    <MESSAGE value="fix: streamline setup methods in test classes for headless mode" />
+    <MESSAGE value="fix: add headless mode setup in test classes for consistent environment" />
+    <MESSAGE value="Implement command pattern for slide navigation and management" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement command pattern for slide navigation and management" />
+  </component>
+</project>
