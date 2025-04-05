@@ -12,8 +12,6 @@ import com.jabberpoint.util.Presentation;
 import com.jabberpoint.util.Style;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.Color;
-import java.awt.Font;
 import javax.swing.JFrame;
 
 @RunWith(MockitoJUnitRunner.Silent.class) // Use Silent runner to avoid unnecessary stubbing warnings

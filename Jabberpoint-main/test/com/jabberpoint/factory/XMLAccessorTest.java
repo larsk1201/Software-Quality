@@ -15,7 +15,6 @@ import com.jabberpoint.ui.BitmapItem;
 import java.io.IOException;
 import java.io.File;
 import java.io.FileWriter;
-import java.util.Vector;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;

@@ -6,16 +6,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
 
 import com.jabberpoint.util.Style;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Rectangle;
+
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
-import java.awt.FontMetrics;
-import java.awt.Font;
+
 
 @RunWith(MockitoJUnitRunner.Silent.class) // Use Silent runner to avoid unnecessary stubbing warnings
 public class SlideItemTest {

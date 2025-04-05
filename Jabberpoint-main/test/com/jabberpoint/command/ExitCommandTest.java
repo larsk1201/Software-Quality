@@ -1,12 +1,8 @@
 package com.jabberpoint.command;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ExitCommandTest {

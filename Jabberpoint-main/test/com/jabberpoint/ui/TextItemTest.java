@@ -11,12 +11,9 @@ import static org.mockito.Mockito.*;
 import com.jabberpoint.util.Style;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 import java.awt.font.FontRenderContext;
 import java.text.AttributedString;
-import java.util.List;
-import java.util.ArrayList;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
 public class TextItemTest {

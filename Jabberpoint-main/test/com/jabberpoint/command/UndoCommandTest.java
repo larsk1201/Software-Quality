@@ -1,6 +1,5 @@
 package com.jabberpoint.command;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -10,7 +9,6 @@ import static org.mockito.Mockito.*;
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.memento.PresentationCaretaker;
 import com.jabberpoint.memento.Memento;
-import java.awt.Frame;
 import java.util.Stack;
 
 @RunWith(MockitoJUnitRunner.class)

@@ -5,12 +5,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
 
 import com.jabberpoint.command.KeyController;
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.util.Style;
-import java.awt.event.WindowListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.KeyListener;
 

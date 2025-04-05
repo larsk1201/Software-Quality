@@ -4,10 +4,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
 
 import java.awt.Frame;
-import javax.swing.JOptionPane;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AboutBoxTest {

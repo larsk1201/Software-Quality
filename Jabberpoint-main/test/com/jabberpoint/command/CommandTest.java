@@ -10,7 +10,6 @@ import com.jabberpoint.util.Presentation;
 import com.jabberpoint.memento.PresentationCaretaker;
 import com.jabberpoint.memento.Memento;
 import com.jabberpoint.ui.Slide;
-import java.awt.Frame;
 import java.util.Stack;
 
 @RunWith(MockitoJUnitRunner.class)

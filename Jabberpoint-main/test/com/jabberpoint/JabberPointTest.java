@@ -7,17 +7,14 @@ import org.junit.After;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
 
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.util.Style;
-import com.jabberpoint.factory.XMLAccessor;
 import com.jabberpoint.factory.Accessor;
 import com.jabberpoint.memento.PresentationCaretaker;
 import com.jabberpoint.command.*;
 import com.jabberpoint.ui.*;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

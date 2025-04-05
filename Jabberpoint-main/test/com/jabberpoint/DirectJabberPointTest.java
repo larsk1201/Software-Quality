@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.After;
 
 import com.jabberpoint.util.Style;
-import com.jabberpoint.util.Presentation;
 import com.jabberpoint.factory.Accessor;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
