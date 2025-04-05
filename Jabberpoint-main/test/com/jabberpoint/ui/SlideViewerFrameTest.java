@@ -10,6 +10,14 @@ import org.junit.Test;
 
 public class SlideViewerFrameTest {
 
+    @Before
+    public void setUp() {
+        System.setProperty("java.awt.headless", "true");
+        Style.createStyles();
+        mockPresentation = new Presentation(); // use real instance for full coverage
+        testFrame = new TestableSlideViewerFrame("Test Title", mockPresentation);
+    }
+
     private Presentation mockPresentation;
     private SlideViewerFrame testFrame;
 
@@ -23,14 +31,6 @@ public class SlideViewerFrameTest {
         public void setVisible(boolean b) {
             // Do nothing – override to suppress GUI
         }
-    }
-
-    @Before
-    public void setUp() {
-        System.setProperty("java.awt.headless", "true");
-        Style.createStyles();
-        mockPresentation = new Presentation(); // use real instance for full coverage
-        testFrame = new TestableSlideViewerFrame("Test Title", mockPresentation);
     }
 
     @Test

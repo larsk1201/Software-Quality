@@ -22,15 +22,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class CommandTest {
 
-    @Mock
-    private Presentation mockPresentation;
-
-    @Mock
-    private PresentationCaretaker mockCaretaker;
-
-    @Mock
-    private Stack<Memento> mockStack;
-
     @Before
     public void setUp() {
         System.setProperty("java.awt.headless", "true");
@@ -39,6 +30,15 @@ public class CommandTest {
         System.setProperty("prism.order", "sw");
         System.setProperty("prism.text", "t2k");
     }
+
+    @Mock
+    private Presentation mockPresentation;
+
+    @Mock
+    private PresentationCaretaker mockCaretaker;
+
+    @Mock
+    private Stack<Memento> mockStack;
 
     @Test
     public void nextSlideCommandExecuteCallsNextSlideOnPresentation() {

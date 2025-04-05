@@ -22,6 +22,19 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class MenuControllerTest {
 
+  @Before
+  public void setUp() {
+    System.setProperty("java.awt.headless", "true");
+    System.setProperty("testfx.robot", "glass");
+    System.setProperty("testfx.headless", "true");
+    System.setProperty("prism.order", "sw");
+    System.setProperty("prism.text", "t2k");
+    menuController = new MenuController(mockFrame, mockPresentation);
+    menuController.setUndoCommand(mockUndoCommand);
+    menuController.setAddSlideCommand(mockAddSlideCommand);
+    menuController.setDeleteSlideCommand(mockDeleteSlideCommand);
+  }
+
   @Mock
   private Frame mockFrame;
 
@@ -38,19 +51,6 @@ public class MenuControllerTest {
   private Command mockDeleteSlideCommand;
 
   private MenuController menuController;
-
-  @Before
-  public void setUp() {
-    System.setProperty("java.awt.headless", "true");
-    System.setProperty("testfx.robot", "glass");
-    System.setProperty("testfx.headless", "true");
-    System.setProperty("prism.order", "sw");
-    System.setProperty("prism.text", "t2k");
-    menuController = new MenuController(mockFrame, mockPresentation);
-    menuController.setUndoCommand(mockUndoCommand);
-    menuController.setAddSlideCommand(mockAddSlideCommand);
-    menuController.setDeleteSlideCommand(mockDeleteSlideCommand);
-  }
 
   @Test
   public void menuControllerCreatesMenusSuccessfully() {
