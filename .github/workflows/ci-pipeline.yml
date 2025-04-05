@@ -60,12 +60,6 @@ jobs:
       - name: Build JAR
         run: mvn clean package --file Jabberpoint-main/pom.xml
 
-      - name: Upload JAR as Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: acceptance-build
-          path: Jabberpoint-main/target/*.jar
-
 
 
   production:
