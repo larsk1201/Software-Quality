@@ -6,19 +6,9 @@ import com.jabberpoint.command.KeyController;
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.util.Style;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class SlideViewerFrameTest {
-
-    @BeforeClass
-    public static void setUpClass() {
-        System.setProperty("java.awt.headless", "true");
-        System.setProperty("testfx.robot", "glass");
-        System.setProperty("testfx.headless", "true");
-        System.setProperty("prism.order", "sw");
-        System.setProperty("prism.text", "t2k");
-    }
 
     @Before
     public void setUp() {

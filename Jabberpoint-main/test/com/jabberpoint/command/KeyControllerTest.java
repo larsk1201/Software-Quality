@@ -5,12 +5,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import com.jabberpoint.util.Presentation;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -19,15 +19,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class KeyControllerTest {
 
-  @BeforeClass
-  public static void setUpClass() {
-    System.setProperty("java.awt.headless", "true");
-    System.setProperty("testfx.robot", "glass");
-    System.setProperty("testfx.headless", "true");
-    System.setProperty("prism.order", "sw");
-    System.setProperty("prism.text", "t2k");
-  }
-
   @Before
   public void setUp() {
     System.setProperty("java.awt.headless", "true");
@@ -35,6 +26,9 @@ public class KeyControllerTest {
     System.setProperty("testfx.headless", "true");
     System.setProperty("prism.order", "sw");
     System.setProperty("prism.text", "t2k");
+
+    System.setProperty("javafx.embed.singleThread", "true");
+    System.setProperty("javafx.platform", "headless");
   }
 
   @Mock
@@ -57,15 +51,17 @@ public class KeyControllerTest {
     KeyController controller = new KeyController(mockPresentation);
     controller.setNextSlideCommand(mockNextCommand);
 
-    // Only test right arrow and space
-    KeyEvent rightEvent = new KeyEvent(new java.awt.Button(), KeyEvent.KEY_PRESSED,
-        System.currentTimeMillis(), 0, KeyEvent.VK_RIGHT, ' ');
+    // Mock right arrow key press event
+    KeyEvent rightEvent = mock(KeyEvent.class);
+    when(rightEvent.getKeyCode()).thenReturn(KeyEvent.VK_RIGHT);
     controller.keyPressed(rightEvent);
 
-    KeyEvent spaceEvent = new KeyEvent(new java.awt.Button(), KeyEvent.KEY_PRESSED,
-        System.currentTimeMillis(), 0, KeyEvent.VK_SPACE, ' ');
+    // Mock space key press event
+    KeyEvent spaceEvent = mock(KeyEvent.class);
+    when(spaceEvent.getKeyCode()).thenReturn(KeyEvent.VK_SPACE);
     controller.keyPressed(spaceEvent);
 
+    // Verify that the next slide command was executed twice
     verify(mockNextCommand, times(2)).execute();
   }
 
@@ -74,15 +70,17 @@ public class KeyControllerTest {
     KeyController controller = new KeyController(mockPresentation);
     controller.setPrevSlideCommand(mockPrevCommand);
 
-    // Only test left arrow and backspace
-    KeyEvent leftEvent = new KeyEvent(new java.awt.Button(), KeyEvent.KEY_PRESSED,
-        System.currentTimeMillis(), 0, KeyEvent.VK_LEFT, ' ');
+    // Mock left arrow key press event
+    KeyEvent leftEvent = mock(KeyEvent.class);
+    when(leftEvent.getKeyCode()).thenReturn(KeyEvent.VK_LEFT);
     controller.keyPressed(leftEvent);
 
-    KeyEvent backspaceEvent = new KeyEvent(new java.awt.Button(), KeyEvent.KEY_PRESSED,
-        System.currentTimeMillis(), 0, KeyEvent.VK_BACK_SPACE, '\b');
+    // Mock backspace key press event
+    KeyEvent backspaceEvent = mock(KeyEvent.class);
+    when(backspaceEvent.getKeyCode()).thenReturn(KeyEvent.VK_BACK_SPACE);
     controller.keyPressed(backspaceEvent);
 
+    // Verify that the prev slide command was executed twice
     verify(mockPrevCommand, times(2)).execute();
   }
 
@@ -91,10 +89,12 @@ public class KeyControllerTest {
     KeyController controller = new KeyController(mockPresentation);
     controller.setExitCommand(mockExitCommand);
 
-    KeyEvent escapeEvent = new KeyEvent(new java.awt.Button(), KeyEvent.KEY_PRESSED,
-        System.currentTimeMillis(), 0, KeyEvent.VK_ESCAPE, (char)27);
+    // Mock escape key press event
+    KeyEvent escapeEvent = mock(KeyEvent.class);
+    when(escapeEvent.getKeyCode()).thenReturn(KeyEvent.VK_ESCAPE);
     controller.keyPressed(escapeEvent);
 
+    // Verify that the exit command was executed once
     verify(mockExitCommand, times(1)).execute();
   }
 
@@ -103,10 +103,13 @@ public class KeyControllerTest {
     KeyController controller = new KeyController(mockPresentation);
     controller.setUndoCommand(mockUndoCommand);
 
-    KeyEvent ctrlZEvent = new KeyEvent(new java.awt.Button(), KeyEvent.KEY_PRESSED,
-        System.currentTimeMillis(), InputEvent.CTRL_DOWN_MASK, KeyEvent.VK_Z, 'z');
+    // Mock Ctrl+Z key press event
+    KeyEvent ctrlZEvent = mock(KeyEvent.class);
+    when(ctrlZEvent.getKeyCode()).thenReturn(KeyEvent.VK_Z);
+    when(ctrlZEvent.getModifiersEx()).thenReturn(InputEvent.CTRL_DOWN_MASK);  // Simulate CTRL key
     controller.keyPressed(ctrlZEvent);
 
+    // Verify that the undo command was executed once
     verify(mockUndoCommand, times(1)).execute();
   }
 
@@ -118,10 +121,12 @@ public class KeyControllerTest {
     controller.setExitCommand(mockExitCommand);
     controller.setUndoCommand(mockUndoCommand);
 
-    KeyEvent randomEvent = new KeyEvent(new java.awt.Button(), KeyEvent.KEY_PRESSED,
-        System.currentTimeMillis(), 0, KeyEvent.VK_F1, ' ');
+    // Mock unknown key press event (F1 key)
+    KeyEvent randomEvent = mock(KeyEvent.class);
+    when(randomEvent.getKeyCode()).thenReturn(KeyEvent.VK_F1);
     controller.keyPressed(randomEvent);
 
+    // Verify that no command was executed for the unknown key
     verify(mockNextCommand, never()).execute();
     verify(mockPrevCommand, never()).execute();
     verify(mockExitCommand, never()).execute();
