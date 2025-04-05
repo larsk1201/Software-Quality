@@ -22,7 +22,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Maven
-        run: mvn clean install --file Jabberpoint-main/pom.xml
+        run: mvn clean verify --file Jabberpoint-main/pom.xml
 
       - name: Run Checkstyle for code quality
         run: mvn checkstyle:check --file Jabberpoint-main/pom.xml
@@ -57,8 +57,15 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Deploy to Acceptance
-        run: echo "Deploying to Acceptance environment"
+      - name: Build JAR
+        run: mvn clean package --file Jabberpoint-main/pom.xml
+
+      - name: Upload JAR as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: acceptance-build
+          path: Jabberpoint-main/target/*.jar
+
 
   production:
     runs-on: ubuntu-latest
@@ -74,5 +81,19 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
-      - name: Deploy to Production
-        run: echo "Deploying to Production environment"
+      - name: Build JAR
+        run: mvn clean package --file Jabberpoint-main/pom.xml
+
+      - name: Set up GitHub CLI
+        run: |
+          sudo apt-get install gh -y
+        env:
+          DEBIAN_FRONTEND: noninteractive
+
+      - name: Authenticate GitHub CLI
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Create GitHub Release
+        run: |
+          TAG="v$(date +%Y%m%d%H%M%S)"
+          gh release create "$TAG" Jabberpoint-main/target/*.jar --title "Release $TAG" --notes "Automated release from main branch"
