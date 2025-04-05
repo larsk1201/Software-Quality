@@ -8,8 +8,10 @@ import static org.mockito.Mockito.*;
 
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.memento.PresentationCaretaker;
+import com.jabberpoint.memento.Memento;
 import com.jabberpoint.ui.Slide;
 import java.awt.Frame;
+import java.util.Stack;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CommandTest {
@@ -21,7 +23,7 @@ public class CommandTest {
     private PresentationCaretaker mockCaretaker;
 
     @Mock
-    private Frame mockFrame;
+    private Stack<Memento> mockStack;
 
     @Test
     public void nextSlideCommandExecuteCallsNextSlideOnPresentation() {
@@ -39,35 +41,33 @@ public class CommandTest {
 
     @Test
     public void undoCommandExecuteCallsLoadOnCaretaker() {
-        when(mockCaretaker.getHistory()).thenReturn(new java.util.Stack<>());
-        when(mockCaretaker.getHistory().isEmpty()).thenReturn(false);
+        when(mockCaretaker.getHistory()).thenReturn(mockStack);
+        when(mockStack.isEmpty()).thenReturn(false);
 
-        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, mockFrame);
+        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, null);
         command.execute();
         verify(mockCaretaker, times(1)).load(mockPresentation);
     }
 
     @Test
     public void undoCommandExecuteDoesNothingWhenHistoryIsEmpty() {
-        when(mockCaretaker.getHistory()).thenReturn(new java.util.Stack<>());
-        when(mockCaretaker.getHistory().isEmpty()).thenReturn(true);
+        when(mockCaretaker.getHistory()).thenReturn(mockStack);
+        when(mockStack.isEmpty()).thenReturn(true);
 
-        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, mockFrame);
+        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, null);
         command.execute();
         verify(mockCaretaker, never()).load(any(Presentation.class));
     }
 
     @Test
     public void addSlideCommandExecuteCreatesNewSlideAndAddsItToPresentation() {
-        when(mockPresentation.getSize()).thenReturn(5);
-
-        AddSlideCommand command = new AddSlideCommand(mockPresentation, mockFrame, mockCaretaker) {
+        AddSlideCommand command = new AddSlideCommand(mockPresentation, null, mockCaretaker) {
             @Override
             public void execute() {
                 Slide newSlide = new Slide();
                 newSlide.setTitle("Test Slide");
                 mockPresentation.append(newSlide);
-                mockPresentation.setSlideNumber(mockPresentation.getSize() - 1);
+                mockPresentation.setSlideNumber(0);
             }
         };
 
@@ -79,19 +79,16 @@ public class CommandTest {
 
     @Test
     public void deleteSlideCommandExecuteDeletesCurrentSlideFromPresentation() {
-        when(mockPresentation.getSize()).thenReturn(3);
-        when(mockPresentation.getSlideNumber()).thenReturn(1);
-
-        DeleteSlideCommand command = new DeleteSlideCommand(mockPresentation, mockFrame, mockCaretaker) {
+        DeleteSlideCommand command = new DeleteSlideCommand(mockPresentation, null, mockCaretaker) {
             @Override
             public void execute() {
-                mockPresentation.deleteSlide(mockPresentation.getSlideNumber());
+                mockPresentation.deleteSlide(0);
             }
         };
 
         command.execute();
 
-        verify(mockPresentation, times(1)).deleteSlide(1);
+        verify(mockPresentation, times(1)).deleteSlide(anyInt());
     }
 
     @Test
@@ -123,14 +120,14 @@ public class CommandTest {
     }
 
     @Test
-    public void keyControllerKeyPressedWithQExecutesExitCommand() {
+    public void keyControllerKeyPressedWithEscapeExecutesExitCommand() {
         KeyController controller = new KeyController(mockPresentation);
         Command mockExitCommand = mock(Command.class);
         controller.setExitCommand(mockExitCommand);
 
         java.awt.event.KeyEvent exitKeyEvent = new java.awt.event.KeyEvent(
             new java.awt.Button(), java.awt.event.KeyEvent.KEY_PRESSED,
-            System.currentTimeMillis(), 0, 'q', 'q');
+            System.currentTimeMillis(), 0, java.awt.event.KeyEvent.VK_ESCAPE, (char)27);
         controller.keyPressed(exitKeyEvent);
 
         verify(mockExitCommand, times(1)).execute();

@@ -164,6 +164,11 @@ public class PresentationTest {
         slide.setTitle("Memento Slide");
         slides.add(slide);
         Memento memento = new Memento("Memento Presentation", slides);
+
+        // Set up the presentation with a slide first
+        presentation.append(new Slide());
+        presentation.setSlideNumber(0);
+
         presentation.restoreMemento(memento);
         assertEquals("Memento Presentation", presentation.getTitle());
         assertEquals(1, presentation.getSize());

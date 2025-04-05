@@ -12,7 +12,6 @@ import com.jabberpoint.memento.PresentationCaretaker;
 import com.jabberpoint.memento.Memento;
 import java.awt.Frame;
 import java.util.Stack;
-import java.util.ArrayList;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UndoCommandTest {
@@ -24,16 +23,14 @@ public class UndoCommandTest {
     private PresentationCaretaker mockCaretaker;
 
     @Mock
-    private Frame mockFrame;
+    private Stack<Memento> mockStack;
 
     @Test
     public void undoCommandExecuteCallsLoadOnCaretakerWhenHistoryIsNotEmpty() {
-        Stack<Memento> nonEmptyStack = new Stack<>();
-        nonEmptyStack.push(new Memento("Test", new ArrayList<>()));
+        when(mockCaretaker.getHistory()).thenReturn(mockStack);
+        when(mockStack.isEmpty()).thenReturn(false);
 
-        when(mockCaretaker.getHistory()).thenReturn(nonEmptyStack);
-
-        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, mockFrame);
+        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, null);
         command.execute();
 
         verify(mockCaretaker, times(1)).load(mockPresentation);
@@ -41,11 +38,10 @@ public class UndoCommandTest {
 
     @Test
     public void undoCommandExecuteDoesNotCallLoadOnCaretakerWhenHistoryIsEmpty() {
-        Stack<Memento> emptyStack = new Stack<>();
+        when(mockCaretaker.getHistory()).thenReturn(mockStack);
+        when(mockStack.isEmpty()).thenReturn(true);
 
-        when(mockCaretaker.getHistory()).thenReturn(emptyStack);
-
-        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, mockFrame);
+        UndoCommand command = new UndoCommand(mockPresentation, mockCaretaker, null);
         command.execute();
 
         verify(mockCaretaker, never()).load(any(Presentation.class));

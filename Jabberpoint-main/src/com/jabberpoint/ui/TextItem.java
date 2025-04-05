@@ -49,7 +49,7 @@ public class TextItem extends SlideItem {
   // geef de AttributedString voor het item
   public AttributedString getAttributedString(Style style, float scale) {
     AttributedString attrStr = new AttributedString(getText());
-    attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, text.length());
+    attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, getText().length());
     return attrStr;
   }
 
@@ -96,13 +96,15 @@ public class TextItem extends SlideItem {
   private List<TextLayout> getLayouts(Graphics g, Style s, float scale) {
     List<TextLayout> layouts = new ArrayList<TextLayout>();
     AttributedString attrStr = getAttributedString(s, scale);
-    Graphics2D g2d = (Graphics2D) g;
-    FontRenderContext frc = g2d.getFontRenderContext();
-    LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
-    float wrappingWidth = (Slide.WIDTH - s.indent) * scale;
-    while (measurer.getPosition() < getText().length()) {
-      TextLayout layout = measurer.nextLayout(wrappingWidth);
-      layouts.add(layout);
+    if (g instanceof Graphics2D) {
+      Graphics2D g2d = (Graphics2D) g;
+      FontRenderContext frc = g2d.getFontRenderContext();
+      LineBreakMeasurer measurer = new LineBreakMeasurer(attrStr.getIterator(), frc);
+      float wrappingWidth = (Slide.WIDTH - s.indent) * scale;
+      while (measurer.getPosition() < getText().length()) {
+        TextLayout layout = measurer.nextLayout(wrappingWidth);
+        layouts.add(layout);
+      }
     }
     return layouts;
   }
@@ -111,3 +113,4 @@ public class TextItem extends SlideItem {
     return "com.jabberpoint.ui.TextItem[" + getLevel() + "," + getText() + "]";
   }
 }
+

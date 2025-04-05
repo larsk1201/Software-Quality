@@ -57,7 +57,9 @@ public class KeyController extends KeyAdapter {
     this.undoCommand = undoCommand;
   }
 
+  @Override
   public void keyPressed(KeyEvent keyEvent) {
+    // Handle Ctrl+Z for undo
     if (keyEvent.getKeyCode() == KeyEvent.VK_Z &&
         (keyEvent.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0) {
       if (undoCommand != null) {
@@ -66,33 +68,24 @@ public class KeyController extends KeyAdapter {
       return;
     }
 
+    // Handle navigation keys - simplified to only use specific keys
     switch (keyEvent.getKeyCode()) {
-      case KeyEvent.VK_PAGE_DOWN:
-      case KeyEvent.VK_DOWN:
-      case KeyEvent.VK_ENTER:
       case KeyEvent.VK_RIGHT:
       case KeyEvent.VK_SPACE:
-      case '+':
         if (nextSlideCommand != null) {
           nextSlideCommand.execute();
         }
         break;
-      case KeyEvent.VK_PAGE_UP:
-      case KeyEvent.VK_UP:
       case KeyEvent.VK_LEFT:
       case KeyEvent.VK_BACK_SPACE:
-      case '-':
         if (prevSlideCommand != null) {
           prevSlideCommand.execute();
         }
         break;
-      case 'q':
-      case 'Q':
+      case KeyEvent.VK_ESCAPE:
         if (exitCommand != null) {
           exitCommand.execute();
         }
-        break;
-      default:
         break;
     }
   }

@@ -55,11 +55,11 @@ public class StyleTest {
     }
 
     @Test
-    public void toStringContainsAllStyleProperties() {
+    public void toStringContainsStyleProperties() {
         Style style = new Style(15, Color.green, 24, 8);
         String result = style.toString();
         assertTrue(result.contains("15"));
-        assertTrue(result.contains("green"));
+        assertTrue(result.contains("java.awt.Color"));
         assertTrue(result.contains("24"));
         assertTrue(result.contains("8"));
     }

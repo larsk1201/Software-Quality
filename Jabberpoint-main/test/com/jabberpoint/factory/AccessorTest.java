@@ -107,5 +107,17 @@ public class AccessorTest {
     AccessorFactory factory = new AccessorFactory();
     factory.createAccessor("Invalid");
   }
+
+  @Test
+  public void accessorDefaultConstructorDoesNotThrowExceptions() {
+    Accessor accessor = new XMLAccessor();
+    assertNotNull(accessor);
+  }
+
+  @Test
+  public void accessorConstantsHaveCorrectValues() {
+    assertEquals("Demonstratie presentatie", Accessor.DEMO_NAME);
+    assertEquals(".xml", Accessor.DEFAULT_EXTENSION);
+  }
 }
 

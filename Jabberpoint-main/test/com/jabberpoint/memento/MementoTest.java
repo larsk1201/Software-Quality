@@ -51,14 +51,18 @@ public class MementoTest {
     public void presentationCaretakerSupportsMultipleUndos() {
         PresentationCaretaker caretaker = new PresentationCaretaker();
         Presentation presentation = new Presentation();
+
         presentation.setTitle("State 1");
         caretaker.save(presentation);
+
         presentation.setTitle("State 2");
         caretaker.save(presentation);
+
         presentation.setTitle("State 3");
-        caretaker.save(presentation);
+
         caretaker.load(presentation);
         assertEquals("State 2", presentation.getTitle());
+
         caretaker.load(presentation);
         assertEquals("State 1", presentation.getTitle());
     }

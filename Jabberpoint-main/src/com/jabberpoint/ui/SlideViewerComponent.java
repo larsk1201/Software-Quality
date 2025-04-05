@@ -32,7 +32,11 @@ public class SlideViewerComponent extends JComponent {
     labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
     this.frame = frame;
 
+    // Ensure the component can receive keyboard focus
     setFocusable(true);
+
+    // Disable focus traversal keys to prevent tab key from changing focus
+    setFocusTraversalKeysEnabled(false);
   }
 
   public Dimension getPreferredSize() {

@@ -35,12 +35,21 @@ public class SlideViewerFrame extends JFrame {
     getContentPane().add(slideViewerComponent);
 
     keyController = new KeyController(presentation);
+
+    // Add the key listener to both the frame and the component
     addKeyListener(keyController);
+    slideViewerComponent.addKeyListener(keyController);
 
     setMenuBar(new MenuController(this, presentation));
     setSize(new Dimension(WIDTH, HEIGHT));
+
+    // Make sure the component is focusable
+    slideViewerComponent.setFocusable(true);
+
+    // Make the frame visible
     setVisible(true);
 
+    // Request focus for the frame
     requestFocus();
   }
 
