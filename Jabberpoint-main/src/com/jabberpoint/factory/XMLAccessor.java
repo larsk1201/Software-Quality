@@ -50,7 +50,8 @@ public class XMLAccessor extends Accessor {
       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
       // Disable DTD validation to avoid needing the DTD file
       factory.setValidating(false);
-      factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+      factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd",
+          false);
 
       DocumentBuilder builder = factory.newDocumentBuilder();
 
@@ -58,7 +59,9 @@ public class XMLAccessor extends Accessor {
       File file = new File(filename);
       if (!file.exists()) {
         // Create a simple XML structure for testing
-        String xmlContent = "<?xml version=\"1.0\"?><presentation><showtitle>Test Presentation</showtitle><slide><title>Test Slide</title><item kind=\"text\" level=\"1\">Test Item</item></slide></presentation>";
+        String xmlContent = "<?xml version=\"1.0\"?><presentation><showtitle>Test Presentation"
+            + "</showtitle><slide><title>Test Slide</title><item kind=\"text\" level=\"1\">"
+            + "Test Item</item></slide></presentation>";
         Document document = builder.parse(new InputSource(new StringReader(xmlContent)));
         Element doc = document.getDocumentElement();
 

@@ -68,7 +68,8 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <configLocation>google_checks.xml</configLocation>
+                    <!-- Ensure this points to your local Checkstyle configuration file -->
+                    <configLocation>checkstyle.xml</configLocation>
                     <failOnViolation>true</failOnViolation>
                 </configuration>
                 <executions>
