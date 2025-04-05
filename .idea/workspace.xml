@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f7614912-fd80-4f65-8fc7-775211bd4903" name="Changes" comment="Implement command pattern for slide navigation and management">
+      <change afterPath="$PROJECT_DIR$/.idea/Software-Quality.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/.idea/libraries/junit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/.idea/libraries/mockito_core.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/checkstyle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.annotation.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.ejb.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.jms.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.persistence.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.resource.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.servlet.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.servlet.jsp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.servlet.jsp.jstl.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/lib/javax.transaction.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/JabberPoint.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/command/AddSlideCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/command/Command.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/command/DeleteSlideCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/command/ExitCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/command/KeyController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/command/NextSlideCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/command/PrevSlideCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/command/UndoCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/factory/Accessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/factory/AccessorFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/factory/DemoPresentation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/factory/XMLAccessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/memento/Memento.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/memento/PresentationCaretaker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/BitmapItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/MenuController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/Slide.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/SlideItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/SlideViewerComponent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/SlideViewerFrame$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/SlideViewerFrame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/TextItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/util/Presentation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/DirectJabberPointTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/JabberPointTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/AddSlideCommandTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/AddSlideCommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/CommandTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/CommandTest$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/CommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/DeleteSlideCommandTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/DeleteSlideCommandTest$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/DeleteSlideCommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/ExitCommandTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/ExitCommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/KeyControllerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/command/UndoCommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/factory/AccessorFactoryTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/factory/AccessorTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/factory/DemoPresentationTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/factory/XMLAccessorTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/memento/MementoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/ui/AboutBoxTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/ui/BitmapItemTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/ui/BitmapItemTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/ui/SlideItemTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/ui/SlideTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/ui/SlideTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/ui/SlideViewerComponentTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/ui/TextItemTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/util/PresentationTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/out/test/Jabberpoint-main/com/jabberpoint/util/StyleTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/output_presentation.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/JabberPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/command/AddSlideCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/command/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/command/DeleteSlideCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/command/ExitCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/command/KeyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/command/NextSlideCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/command/PrevSlideCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/command/UndoCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/factory/Accessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/factory/AccessorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/factory/DemoPresentation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/factory/XMLAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/memento/Memento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/memento/PresentationCaretaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/ui/AboutBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/ui/BitmapItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/ui/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/ui/Slide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/ui/SlideItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/ui/SlideViewerComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/ui/SlideViewerFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/ui/TextItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/util/Presentation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/src/com/jabberpoint/util/Style.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/JabberPoint.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/command/AddSlideCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/command/Command.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/command/DeleteSlideCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/command/ExitCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/command/KeyController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/command/NextSlideCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/command/PrevSlideCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/command/UndoCommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/factory/Accessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/factory/AccessorFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/factory/DemoPresentation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/factory/XMLAccessor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/memento/Memento.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/memento/PresentationCaretaker.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/AboutBox.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/BitmapItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/MenuController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/Slide.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/SlideItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/SlideViewerComponent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/SlideViewerFrame$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/SlideViewerFrame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/ui/TextItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/util/Presentation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/classes/com/jabberpoint/util/Style.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.DirectJabberPointTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.JabberPointTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.command.AddSlideCommandTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.command.CommandTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.command.DeleteSlideCommandTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.command.ExitCommandTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.command.KeyControllerTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.command.UndoCommandTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.factory.AccessorFactoryTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.factory.AccessorTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.factory.DemoPresentationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.factory.XMLAccessorTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.memento.MementoTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.ui.AboutBoxTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.ui.BitmapItemTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.ui.SlideItemTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.ui.SlideTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.ui.SlideViewerComponentTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.ui.TextItemTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.util.PresentationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/TEST-com.jabberpoint.util.StyleTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.DirectJabberPointTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.JabberPointTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.command.AddSlideCommandTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.command.CommandTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.command.DeleteSlideCommandTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.command.ExitCommandTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.command.KeyControllerTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.command.UndoCommandTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.factory.AccessorFactoryTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.factory.AccessorTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.factory.DemoPresentationTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.factory.XMLAccessorTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.memento.MementoTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.ui.AboutBoxTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.ui.BitmapItemTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.ui.SlideItemTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.ui.SlideTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.ui.SlideViewerComponentTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.ui.TextItemTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.util.PresentationTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/surefire-reports/com.jabberpoint.util.StyleTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/DirectJabberPointTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/JabberPointTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/AddSlideCommandTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/AddSlideCommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/CommandTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/CommandTest$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/CommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/DeleteSlideCommandTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/DeleteSlideCommandTest$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/DeleteSlideCommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/ExitCommandTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/ExitCommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/KeyControllerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/command/UndoCommandTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/factory/AccessorFactoryTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/factory/AccessorTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/factory/DemoPresentationTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/factory/XMLAccessorTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/memento/MementoTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/ui/AboutBoxTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/ui/BitmapItemTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/ui/BitmapItemTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/ui/SlideItemTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/ui/SlideTest$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/ui/SlideTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/ui/SlideViewerComponentTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/ui/TextItemTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/util/PresentationTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/target/test-classes/com/jabberpoint/util/StyleTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/DirectJabberPointTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/JabberPointTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/command/AddSlideCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/command/CommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/command/DeleteSlideCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/command/ExitCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/command/KeyControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/command/UndoCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/factory/AccessorFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/factory/AccessorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/factory/DemoPresentationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/factory/XMLAccessorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/memento/MementoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/ui/AboutBoxTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/ui/BitmapItemTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/ui/SlideItemTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/ui/SlideTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/ui/SlideViewerComponentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/ui/TextItemTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/util/PresentationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/test/com/jabberpoint/util/StyleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jabberpoint-main/testfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci-pipeline.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci-pipeline.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Jabberpoint-main/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/Jabberpoint-main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Jabberpoint-main/Jabberpoint-main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/google_checks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/jabberpoint.dtd" beforeDir="false" afterPath="$PROJECT_DIR$/Jabberpoint-main/jabberpoint.dtd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/AboutBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/ui/AboutBox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/Accessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/BitmapItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/DemoPresentation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/JabberPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/KeyController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/Presentation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/Slide.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/SlideItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/SlideViewerComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/SlideViewerFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/SlideViewerFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/Style.class" beforeDir="false" afterPath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/com/jabberpoint/util/Style.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/TextItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/out/production/Jabberpoint-main/XMLAccessor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Jabberpoint-main/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/AboutBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/Accessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/BitmapItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/DemoPresentation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/JabberPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/KeyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/Presentation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/Slide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/SlideItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/SlideViewerComponent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/SlideViewerFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/Style.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/TextItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/src/XMLAccessor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/target/checkstyle-cachefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/target/checkstyle-checker.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/target/checkstyle-result.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jabberpoint-main/test.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2vG46BlimWdjP7SDUTHwQJ70F7k" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging acceptance",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Gebruiker/Downloads/Software Quality/Software-Quality/Jabberpoint-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Gebruiker\Downloads\Software Quality\Software-Quality\Jabberpoint-main" />
+      <recent name="C:\Users\Gebruiker\Downloads\Software Quality\Software-Quality" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7614912-fd80-4f65-8fc7-775211bd4903" name="Changes" comment="" />
+      <created>1743757899103</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743757899103</updated>
+      <workItem from="1743757900333" duration="191000" />
+      <workItem from="1743760835280" duration="865000" />
+      <workItem from="1743761993040" duration="1961000" />
+      <workItem from="1743864768349" duration="3109000" />
+      <workItem from="1743868842731" duration="960000" />
+      <workItem from="1743876111602" duration="3108000" />
+      <workItem from="1743888229055" duration="919000" />
+      <workItem from="1743894016160" duration="666000" />
+    </task>
+    <task id="LOCAL-00001" summary="fix: update file paths in CI configuration for Maven and Checkstyle">
+      <option name="closed" value="true" />
+      <created>1743762840504</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743762840504</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix: correct file paths in CI configuration for Jabberpoint">
+      <option name="closed" value="true" />
+      <created>1743762956162</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1743762956162</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix: rename pom.xml to correct location in project structure">
+      <option name="closed" value="true" />
+      <created>1743763256890</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1743763256890</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix: enable headless mode for Maven test execution in CI pipeline">
+      <option name="closed" value="true" />
+      <created>1743864906051</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1743864906051</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: enable headless mode for Maven Surefire plugin in pom.xml">
+      <option name="closed" value="true" />
+      <created>1743865140456</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743865140456</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: enable headless mode for tests and update pom.xml dependencies">
+      <option name="closed" value="true" />
+      <created>1743865952884</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1743865952884</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: update pom.xml to correct schema location and add JCenter repository">
+      <option name="closed" value="true" />
+      <created>1743866058129</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743866058129</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: add Sonatype repository and update TestFX dependency to junit5">
+      <option name="closed" value="true" />
+      <created>1743866128001</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743866128001</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: configure headless mode and update TestFX dependencies in test classes">
+      <option name="closed" value="true" />
+      <created>1743866705852</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743866705852</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: adjust formatting in DirectJabberPointTest and ensure headless mode setup">
+      <option name="closed" value="true" />
+      <created>1743866798200</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743866798200</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: refactor JabberPoint initialization and update tests for headless mode">
+      <option name="closed" value="true" />
+      <created>1743877889004</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743877889004</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: streamline setup methods in test classes for headless mode">
+      <option name="closed" value="true" />
+      <created>1743878523863</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743878523863</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: add headless mode setup in test classes for consistent environment">
+      <option name="closed" value="true" />
+      <created>1743878804278</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743878804278</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: update file paths in CI configuration for Maven and Checkstyle" />
+    <MESSAGE value="fix: correct file paths in CI configuration for Jabberpoint" />
+    <MESSAGE value="fix: rename pom.xml to correct location in project structure" />
+    <MESSAGE value="fix: enable headless mode for Maven test execution in CI pipeline" />
+    <MESSAGE value="fix: enable headless mode for Maven Surefire plugin in pom.xml" />
+    <MESSAGE value="fix: enable headless mode for tests and update pom.xml dependencies" />
+    <MESSAGE value="fix: update pom.xml to correct schema location and add JCenter repository" />
+    <MESSAGE value="fix: add Sonatype repository and update TestFX dependency to junit5" />
+    <MESSAGE value="fix: configure headless mode and update TestFX dependencies in test classes" />
+    <MESSAGE value="fix: adjust formatting in DirectJabberPointTest and ensure headless mode setup" />
+    <MESSAGE value="fix: refactor JabberPoint initialization and update tests for headless mode" />
+    <MESSAGE value="fix: streamline setup methods in test classes for headless mode" />
+    <MESSAGE value="fix: add headless mode setup in test classes for consistent environment" />
+    <MESSAGE value="Implement command pattern for slide navigation and management" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement command pattern for slide navigation and management" />
+  </component>
+</project>
