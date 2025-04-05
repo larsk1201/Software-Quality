@@ -38,7 +38,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Run tests with Maven
-        run: mvn test --file Jabberpoint-main/pom.xml
+        run: mvn test --file Jabberpoint-main/pom.xml -Djava.awt.headless=true
 
   acceptance:
     runs-on: ubuntu-latest
