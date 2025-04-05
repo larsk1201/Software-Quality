@@ -14,6 +14,7 @@ import java.awt.Menu;
 import java.awt.MenuItem;
 import java.awt.event.ActionEvent;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -21,6 +22,15 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MenuControllerTest {
+
+  @BeforeClass
+  public static void setUpClass() {
+    System.setProperty("java.awt.headless", "true");
+    System.setProperty("testfx.robot", "glass");
+    System.setProperty("testfx.headless", "true");
+    System.setProperty("prism.order", "sw");
+    System.setProperty("prism.text", "t2k");
+  }
 
   @Before
   public void setUp() {

@@ -10,6 +10,7 @@ import com.jabberpoint.util.Presentation;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -17,6 +18,15 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class KeyControllerTest {
+
+  @BeforeClass
+  public static void setUpClass() {
+    System.setProperty("java.awt.headless", "true");
+    System.setProperty("testfx.robot", "glass");
+    System.setProperty("testfx.headless", "true");
+    System.setProperty("prism.order", "sw");
+    System.setProperty("prism.text", "t2k");
+  }
 
   @Before
   public void setUp() {
