@@ -1,14 +1,19 @@
 package com.jabberpoint.factory;
 
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.argThat;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.eq;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import com.jabberpoint.ui.Slide;
+import com.jabberpoint.util.Presentation;
+import java.io.IOException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
-
-import com.jabberpoint.util.Presentation;
-import com.jabberpoint.ui.Slide;
-import java.io.IOException;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DemoPresentationTest {

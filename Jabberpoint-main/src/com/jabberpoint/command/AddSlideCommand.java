@@ -1,10 +1,10 @@
 package com.jabberpoint.command;
 
-import com.jabberpoint.util.Presentation;
 import com.jabberpoint.memento.PresentationCaretaker;
 import com.jabberpoint.ui.Slide;
-import javax.swing.JOptionPane;
+import com.jabberpoint.util.Presentation;
 import java.awt.Frame;
+import javax.swing.JOptionPane;
 
 public class AddSlideCommand implements Command {
 

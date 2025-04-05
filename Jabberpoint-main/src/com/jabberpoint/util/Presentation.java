@@ -1,8 +1,8 @@
 package com.jabberpoint.util;
 
+import com.jabberpoint.memento.Memento;
 import com.jabberpoint.ui.Slide;
 import com.jabberpoint.ui.SlideViewerComponent;
-import com.jabberpoint.memento.Memento;
 import java.util.ArrayList;
 
 public class Presentation {

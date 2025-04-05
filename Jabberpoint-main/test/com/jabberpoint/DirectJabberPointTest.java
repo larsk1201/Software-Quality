@@ -1,14 +1,16 @@
 package com.jabberpoint;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
-import com.jabberpoint.util.Style;
 import com.jabberpoint.factory.Accessor;
+import com.jabberpoint.util.Style;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 public class DirectJabberPointTest {
 

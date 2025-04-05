@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 public class AccessorFactory {
+
   private Map<String, Supplier<Accessor>> registry = new HashMap<>();
 
   public AccessorFactory() {

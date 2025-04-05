@@ -1,16 +1,19 @@
 package com.jabberpoint.ui;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import com.jabberpoint.command.KeyController;
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.util.Style;
-import java.awt.event.WindowEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SlideViewerFrameTest {

@@ -1,11 +1,10 @@
 package com.jabberpoint.ui;
 
+import java.awt.Frame;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.awt.Frame;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AboutBoxTest {

@@ -1,23 +1,33 @@
 package com.jabberpoint;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
-import org.junit.Before;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import com.jabberpoint.command.Command;
+import com.jabberpoint.command.ExitCommand;
+import com.jabberpoint.command.KeyController;
+import com.jabberpoint.command.NextSlideCommand;
+import com.jabberpoint.command.PrevSlideCommand;
+import com.jabberpoint.command.UndoCommand;
+import com.jabberpoint.factory.Accessor;
+import com.jabberpoint.memento.PresentationCaretaker;
+import com.jabberpoint.ui.MenuController;
+import com.jabberpoint.ui.Slide;
+import com.jabberpoint.ui.SlideViewerFrame;
+import com.jabberpoint.util.Presentation;
+import com.jabberpoint.util.Style;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import com.jabberpoint.util.Presentation;
-import com.jabberpoint.util.Style;
-import com.jabberpoint.factory.Accessor;
-import com.jabberpoint.memento.PresentationCaretaker;
-import com.jabberpoint.command.*;
-import com.jabberpoint.ui.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
 public class JabberPointTest {

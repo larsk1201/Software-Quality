@@ -1,19 +1,23 @@
 package com.jabberpoint.ui;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import com.jabberpoint.command.Command;
+import com.jabberpoint.util.Presentation;
+import java.awt.Frame;
+import java.awt.Menu;
+import java.awt.MenuItem;
+import java.awt.event.ActionEvent;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
-
-import com.jabberpoint.util.Presentation;
-import com.jabberpoint.command.Command;
-import java.awt.Frame;
-import java.awt.Menu;
-import java.awt.MenuItem;
-import java.awt.event.ActionEvent;
 
 @RunWith(MockitoJUnitRunner.class)
 public class MenuControllerTest {

@@ -1,14 +1,15 @@
 package com.jabberpoint.factory;
 
 import com.jabberpoint.ui.BitmapItem;
-import com.jabberpoint.util.Presentation;
 import com.jabberpoint.ui.Slide;
 import com.jabberpoint.ui.SlideItem;
 import com.jabberpoint.ui.TextItem;
+import com.jabberpoint.util.Presentation;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringReader;
 import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,9 +18,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 import org.xml.sax.InputSource;
-import java.io.StringReader;
+import org.xml.sax.SAXException;
 
 public class XMLAccessor extends Accessor {
 
@@ -119,7 +119,7 @@ public class XMLAccessor extends Accessor {
         }
       }
     } catch (IOException iox) {
-      System.err.println(iox.toString());
+      System.err.println(iox);
       throw iox;
     } catch (SAXException sax) {
       System.err.println(sax.getMessage());
@@ -181,7 +181,7 @@ public class XMLAccessor extends Accessor {
       out.println("<title>" + (slide.getTitle() != null ? slide.getTitle() : "") + "</title>");
       Vector<SlideItem> slideItems = slide.getSlideItems();
       for (int itemNumber = 0; itemNumber < slideItems.size(); itemNumber++) {
-        SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
+        SlideItem slideItem = slideItems.elementAt(itemNumber);
         out.print("<item kind=");
         if (slideItem instanceof TextItem) {
           out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");

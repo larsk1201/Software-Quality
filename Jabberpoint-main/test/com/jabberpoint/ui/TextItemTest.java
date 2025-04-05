@@ -1,19 +1,24 @@
 package com.jabberpoint.ui;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import com.jabberpoint.util.Style;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.font.FontRenderContext;
+import java.awt.image.ImageObserver;
+import java.text.AttributedString;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
-
-import com.jabberpoint.util.Style;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.image.ImageObserver;
-import java.awt.font.FontRenderContext;
-import java.text.AttributedString;
 
 @RunWith(MockitoJUnitRunner.Silent.class)
 public class TextItemTest {

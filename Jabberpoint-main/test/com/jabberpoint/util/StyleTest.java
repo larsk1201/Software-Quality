@@ -1,11 +1,13 @@
 package com.jabberpoint.util;
 
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.Color;
 import java.awt.Font;
+import org.junit.Before;
+import org.junit.Test;
 
 public class StyleTest {
 

@@ -1,15 +1,19 @@
 package com.jabberpoint.command;
 
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import com.jabberpoint.memento.Memento;
+import com.jabberpoint.memento.PresentationCaretaker;
+import com.jabberpoint.util.Presentation;
+import java.util.Stack;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
-
-import com.jabberpoint.util.Presentation;
-import com.jabberpoint.memento.PresentationCaretaker;
-import com.jabberpoint.memento.Memento;
-import java.util.Stack;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UndoCommandTest {

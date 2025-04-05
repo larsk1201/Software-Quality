@@ -1,15 +1,18 @@
 package com.jabberpoint.command;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertSame;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import com.jabberpoint.util.Presentation;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
-
-import com.jabberpoint.util.Presentation;
-import java.awt.event.KeyEvent;
-import java.awt.event.InputEvent;
 
 @RunWith(MockitoJUnitRunner.class)
 public class KeyControllerTest {

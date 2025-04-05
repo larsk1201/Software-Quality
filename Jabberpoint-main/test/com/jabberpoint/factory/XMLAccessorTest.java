@@ -1,20 +1,23 @@
 package com.jabberpoint.factory;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import com.jabberpoint.ui.BitmapItem;
+import com.jabberpoint.ui.Slide;
+import com.jabberpoint.ui.TextItem;
+import com.jabberpoint.util.Presentation;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
-
-import com.jabberpoint.util.Presentation;
-import com.jabberpoint.ui.Slide;
-import com.jabberpoint.ui.TextItem;
-import com.jabberpoint.ui.BitmapItem;
-import java.io.IOException;
-import java.io.File;
-import java.io.FileWriter;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;

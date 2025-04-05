@@ -1,9 +1,9 @@
 package com.jabberpoint.command;
 
-import com.jabberpoint.util.Presentation;
 import com.jabberpoint.memento.PresentationCaretaker;
-import javax.swing.JOptionPane;
+import com.jabberpoint.util.Presentation;
 import java.awt.Frame;
+import javax.swing.JOptionPane;
 
 public class DeleteSlideCommand implements Command {
 

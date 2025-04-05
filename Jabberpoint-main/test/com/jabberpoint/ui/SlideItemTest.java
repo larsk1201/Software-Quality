@@ -1,17 +1,19 @@
 package com.jabberpoint.ui;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+
+import com.jabberpoint.util.Style;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import com.jabberpoint.util.Style;
-import java.awt.Graphics;
-
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 
 
 @RunWith(MockitoJUnitRunner.Silent.class) // Use Silent runner to avoid unnecessary stubbing warnings

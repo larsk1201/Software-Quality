@@ -1,15 +1,18 @@
 package com.jabberpoint.command;
 
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyInt;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import com.jabberpoint.memento.PresentationCaretaker;
+import com.jabberpoint.ui.Slide;
+import com.jabberpoint.util.Presentation;
+import java.awt.Frame;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
-
-import com.jabberpoint.util.Presentation;
-import com.jabberpoint.memento.PresentationCaretaker;
-import com.jabberpoint.ui.Slide;
-import java.awt.Frame;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AddSlideCommandTest {

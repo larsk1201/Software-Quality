@@ -1,9 +1,9 @@
 package com.jabberpoint.command;
 
 import com.jabberpoint.util.Presentation;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.InputEvent;
 
 public class KeyController extends KeyAdapter {
 

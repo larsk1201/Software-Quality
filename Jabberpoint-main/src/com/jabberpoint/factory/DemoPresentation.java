@@ -1,6 +1,5 @@
 package com.jabberpoint.factory;
 
-import com.jabberpoint.ui.BitmapItem;
 import com.jabberpoint.util.Presentation;
 import com.jabberpoint.ui.Slide;
 

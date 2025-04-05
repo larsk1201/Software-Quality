@@ -1,17 +1,20 @@
 package com.jabberpoint.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+
+import com.jabberpoint.memento.Memento;
+import com.jabberpoint.ui.Slide;
+import com.jabberpoint.ui.SlideViewerComponent;
+import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
-
-import com.jabberpoint.ui.Slide;
-import com.jabberpoint.ui.SlideViewerComponent;
-import com.jabberpoint.memento.Memento;
-import java.util.ArrayList;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PresentationTest {
