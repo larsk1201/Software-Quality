@@ -13,7 +13,6 @@ import org.junit.Test;
 public class DirectJabberPointTest {
 
   @Before
-  @Before
   public void setUp() {
     System.setProperty("java.awt.headless", "true");
     System.setProperty("testfx.robot", "glass");
