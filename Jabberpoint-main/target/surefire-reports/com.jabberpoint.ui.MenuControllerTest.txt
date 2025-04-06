@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.jabberpoint.ui.MenuControllerTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 10, Time elapsed: 0.008 s -- in com.jabberpoint.ui.MenuControllerTest
